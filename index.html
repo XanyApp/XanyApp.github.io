@@ -14,41 +14,6 @@ body {
   background-color: #fff;
 }
 
-.dark-mode {
-  color: #fff;
-  background-color: #333;
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #E6F2FF;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: #051C33;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #B2D8FF;
-}
-
 .center {
   display: flex;
   justify-content: center;
@@ -63,6 +28,54 @@ li a:hover {
 .subtitle {
   text-align: center;
   font-size: 30px;
+}
+
+.navigation-header {
+  background-color: #00345c;
+  padding: 0 15px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container > a {
+  color: ghostwhite;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.navigation-items {
+  display: flex;
+  gap: 40px;
+}
+
+.navigation-items > a {
+  color: ghostwhite;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: .4s ease-in-out;
+}
+
+.navigation-items > a:hover {
+  color: rgb(92, 179, 254);
+}
+
+.hamburger {
+  display: none;
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
 }
 
 .header-container {
@@ -192,20 +205,53 @@ li a:hover {
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .hamburger #closeHam {
+    display: none;
+  }
+
+  .navigation-items {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: rgb(0, 41, 83);
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
 </style>
 </head>
 
 <body>
-<div class="nav">
-  <ul class="center">
-    <li><a href="https://xany.app">Xany</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#price">Price</a></li>
-    <li><a href="#support">Support</a></li>
-    <li><a href="#faqs">FAQs</a></li>
-    <li><a href="terms.html">Terms</a></li>
-  </ul>
-</div>
+<header class="navigation-header">
+  <nav>
+    <div class="logo-container">
+      <a href="https://xany.app">Xany</a>
+    </div>
+    <div class="navigation-items" id="navigation-items">
+      <a href="#features">Features</a>
+      <a href="#price">Price</a>
+      <a href="#support">Support</a>
+      <a href="#faqs">FAQs</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="hamburger">
+      <span id="openHam">&#9776;</span>
+      <span id="closeHam">&#x2716;</span>
+    </div>
+  </nav>
+</header>
 
 <div class="header-container">
   <div class="column-left">
@@ -359,6 +405,18 @@ li a:hover {
 </footer>
 
 <script>
+let openHam = document.querySelector('#openHam');
+let closeHam = document.querySelector('#closeHam');
+let navigationItems = document.querySelector('#navigation-items');
+
+const hamburgerEvent = (navigation, close, open) => {
+    navigationItems.style.display = navigation;
+    closeHam.style.display = close;
+    openHam.style.display = open;
+};
+
+openHam.addEventListener('click', () => hamburgerEvent("flex", "block", "none"));
+closeHam.addEventListener('click', () => hamburgerEvent("none", "none", "block"));
 </script>
 
 </html>
