@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xany</title>
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  background-color: #fff;
+}
+
+.dark-mode {
+  color: #fff;
+  background-color: #333;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E6F2FF;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #051C33;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #B2D8FF;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.title {
+  text-align: center;
+  font-size: 35px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 30px;
+}
+
+.header-container {
+  margin-top: 50px;
+  align-items: center;
+  display: flex;
+}
+
+.column-left {
+  flex: 1;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.column-right {
+  flex: 1;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  width: 100px;
+  height: 100px;
+}
+
+
+/* features css */
+.features-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: aliceblue;
+}
+
+.features-img {
+  margin-bottom: 10px;
+  width: auto;
+  height: 500px;
+  -webkit-filter: drop-shadow(0px 5px 10px #222);
+  filter: drop-shadow(0px 5px 10px #222);
+}
+
+/* price */
+.price-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* support */
+.support-container {
+  margin: auto;
+  padding: 20px;
+  background-color: rgb(228, 242, 254);
+}
+
+/* faq */
+.faq-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}
+
+.faq-summary {
+  margin-top: 10px;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq-details {
+  margin-bottom: 10px;
+}
+
+.faq-p {
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+
+.faq-cmdtext {
+  color: #fff;
+  background-color: rgba(10, 5, 42, 0.5);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.faq-tabtext {
+  color: #fff;
+  background-color: rgba(29, 56, 126, 0.5);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.faq-apptext {
+  color: #fff;
+  background-color: rgba(87, 87, 87, 0.5);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.privacy-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+</style>
+</head>
+
+<body>
+<div class="nav">
+  <ul class="center">
+    <li><a href="https://xany.app">Xany</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#price">Price</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="terms.html">Terms</a></li>
+  </ul>
+</div>
+
+<div class="header-container">
+  <div class="column-left">
+    <div class="logo-container">
+      <img class="logo" src="images/icon.jpg" alt="logo">
+      <h1 style="font-size: 55px; color: #051C33;">Xany</h1>
+    </div>
+  </div>
+  <div class="column-right">
+    <p style="background: linear-gradient(45deg, #0c4900, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 25px;">Access your server,</p>
+    <p style="background: linear-gradient(45deg, #002b55, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 25px;">your computer,</p>
+    <p style="background: linear-gradient(45deg, #320051, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 27px;">anytime,</p>
+    <p style="background: linear-gradient(45deg, #390025, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 27px;">anywhere.</p>
+  </div>
+</div>
+
+<div class="features-container">
+  <section id="features">
+    <h2 class="title">Features</h2>
+    <section id="ssh">
+      <h3 class="subtitle">SSH</h3>
+      <p style="background: linear-gradient(45deg, #072e55, #008839); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+        Connect your servers via ssh.
+      </p>
+      <img class="features-img" src="images/iPad_Pro_ssh.png" alt="ssh">
+      <img class="features-img" src="images/iphone15pro_ssh.png" alt="ssh">
+    </section>
+    <section id="sftp">
+      <h3 class="subtitle">SFTP</h3>
+      <p style="background: linear-gradient(45deg, #0F2E4C, #e600ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+        Download & Upload. Files & Directory.
+      </p>
+      <img class="features-img" src="images/iPad_Pro_sftp.png" alt="sftp">
+      <img class="features-img" src="images/iphone15pro_sftp.png" alt="sftp">
+    </section>
+    <section id="vnc">
+      <h3 class="subtitle">VNC Viewer</h3>
+      <p style="background: linear-gradient(45deg, #0F2E4C, #5f0909); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+        Access Mac.
+      </p>
+      <img class="features-img" src="images/iPad_Pro_mac_vnc.png" alt="vnc">
+      <img class="features-img" src="images/iphone15pro_mac_vnc.png" alt="vnc">
+      <p style="background: linear-gradient(45deg, #0F2E4C, #c40202); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+        Access Ubuntu Desktop.
+      </p>
+      <img class="features-img" src="images/iPad_Pro_ubuntu_vnc.png" alt="vnc">
+      <img class="features-img" src="images/iphone15pro_ubuntu_vnc.png" alt="vnc">
+    </section>
+    <section id="filemanager">
+      <h3 class="subtitle">File Manager</h3>
+      <p style="background: linear-gradient(45deg, #0F2E4C, #FF6B00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+        Viewer & Editor.
+      </p>
+      <img class="features-img" src="images/iPad_Pro_filemanager.png" alt="filemanager">
+      <img class="features-img" src="images/iphone15pro_filemanager.png" alt="filemanager">
+    </section>
+  </section>
+</div>
+
+<div class="price-container">
+  <section id="price">
+    <h2 class="title" style="color: #00350f">Price</h2>
+    <div style="margin-bottom: 20px;">
+      <p style="text-align: center; font-size: 25px; color: rgb(179, 179, 179); text-decoration: line-through;">No bullshit subscription!</p>
+      <p style="text-align: center; font-size: 25px; color: #000000;">Purchase one time, use forever.</p>
+      <img src="images/appstore.svg" alt="Price">
+    </div>
+  </section>
+</div>
+
+<div class="support-container">
+  <section id="support">
+    <h2 class="title">Support</h2>
+    <p style="text-align: center; font-size: 20px; color: #333;">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany">Github</a></p>
+  </section>
+</div>
+
+<div class="faq-container">
+  <section id="faqs">
+    <h2 class="title">FAQs</h2>
+    <details class="faq-details">
+      <summary class="faq-summary">How to enable Screen Sharing (aka VNC) on macOS?</summary>
+      <p class="faq-p">Open <span class="faq-apptext">System Settings</span> -> <span class="faq-tabtext">General</span> -> <span class="faq-tabtext">Sharing</span> -> <span class="faq-tabtext">Screen Sharing</span>, turn on it.</p>
+    </details>
+
+    <details class="faq-details">
+      <summary class="faq-summary">What is the difference between ARD and VNC authentication?</summary>
+      <p class="faq-p">ARD authentication is used by Apple, it uses the username and the password which you used to login you computer to participate in the authentication.</p>
+      <p class="faq-p">VNC authentication is one of the authentications in RFC, it uses the username as same as ARD, but you have to create your own password.</p>
+    </details>
+
+    <details class="faq-details">
+      <summary class="faq-summary">How to setup VNC server on Ubuntu Desktop?</summary>
+      <p class="faq-p">install the x11vnc server:</p>
+      <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install x11vnc</span></p>
+      <p class="faq-p">check the current display manager:</p>
+      <p class="faq-p"><span class="faq-cmdtext">$ cat /etc/X11/default-display-manager</span></p>
+      <p class="faq-p">if it is not the lightdm, you should install it: </p>
+      <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install lightdm</span></p>
+      <p class="faq-p"><span class="faq-cmdtext">$ sudo dpkg-reconfigure lightdm</span></p>
+    </details>
+
+    <details class="faq-details">
+      <summary class="faq-summary">RFB protocol is secure?</summary>
+      <p class="faq-p">No! Only the handshake phase is secure, the others is insecure. There's why you should connect to your VNC server over SSH on public network.</p>
+    </details>
+
+    <details class="faq-details">
+      <summary class="faq-summary">Does the vnc viewer support send text message to the vnc server?</summary>
+      <p class="faq-p">Yes and no. Since both the x11vnc and built-in vnc server on macOS are not support this feature, it does not make sense enabled this feature at the client side.</p>
+    </details>
+
+    <details class="faq-details">
+      <summary class="faq-summary">Does the vnc viewer support curtain mode?</summary>
+      <p class="faq-p">No.</p>
+    </details>
+  </section>
+</div>
+
+<div class="privacy-container">
+  <div class="column-left">
+    <h1 style="font-size: 40px; color: #051C33;">Your privacy matters.</h1>
+  </div>
+  <div class="column-right">
+    <p style="background: linear-gradient(45deg, #00356a, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+      All of your data are stored in iCloud.
+    </p>
+    <p style="background: linear-gradient(45deg, #00356a, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+      And on your device.
+    </p>
+    <p style="background: linear-gradient(45deg, #00356a, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+      We won't touch them.</br>
+    </p>
+    <p style="background: linear-gradient(45deg, #00356a, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 20px;">
+      We can't touch them.</br>
+    </p>
+  </div>
+</div>
+
+</body>
+
+<footer style="text-align: center; padding: 20px; background-color: #f8f9fa;">
+  <p>© 2023 Xany. All rights reserved.</p>
+</footer>
+
+<script>
+</script>
+
+</html>
