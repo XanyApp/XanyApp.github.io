@@ -5,232 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Xany</title>
-<style>
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #000;
-  background-color: #fff;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-}
-
-.title {
-  text-align: center;
-  font-size: 35px;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 30px;
-}
-
-.navigation-header {
-  background-color: #00345c;
-  padding: 0 15px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-nav {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-container > a {
-  color: ghostwhite;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 26px;
-}
-
-.navigation-items {
-  display: flex;
-  gap: 40px;
-}
-
-.navigation-items > a {
-  color: ghostwhite;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: .4s ease-in-out;
-}
-
-.navigation-items > a:hover {
-  color: rgb(92, 179, 254);
-}
-
-.hamburger {
-  display: none;
-  font-size: 20px;
-  font-weight: 800;
-  color: white;
-}
-
-.header-container {
-  margin-top: 50px;
-  align-items: center;
-  display: flex;
-}
-
-.column-left {
-  flex: 1;
-  text-align: right;
-  margin-right: 15px;
-}
-
-.column-right {
-  flex: 1;
-  text-align: left;
-  margin-left: 15px;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  display: block;
-  margin-left: auto;
-  width: 100px;
-  height: 100px;
-}
-
-
-/* features css */
-.features-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: aliceblue;
-}
-
-.features-img {
-  margin-bottom: 10px;
-  width: auto;
-  height: 500px;
-  -webkit-filter: drop-shadow(0px 5px 10px #222);
-  filter: drop-shadow(0px 5px 10px #222);
-}
-
-/* price */
-.price-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #fff;
-}
-
-/* support */
-.support-container {
-  margin: auto;
-  padding: 20px;
-  background-color: rgb(228, 242, 254);
-}
-
-/* faq */
-.faq-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
-  text-align: left;
-}
-
-.faq-summary {
-  margin-top: 10px;
-  text-align: left;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.faq-details {
-  margin-bottom: 10px;
-}
-
-.faq-p {
-  padding-left: 20px;
-  margin-bottom: 5px;
-}
-
-.faq-cmdtext {
-  color: #fff;
-  background-color: rgba(10, 5, 42, 0.5);
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.faq-tabtext {
-  color: #fff;
-  background-color: rgba(29, 56, 126, 0.5);
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.faq-apptext {
-  color: #fff;
-  background-color: rgba(87, 87, 87, 0.5);
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.privacy-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@media screen and (max-width: 768px) {
-  .hamburger {
-    display: flex;
-    cursor: pointer;
-  }
-
-  .hamburger #closeHam {
-    display: none;
-  }
-
-  .navigation-items {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    right: 0;
-    top: 50px;
-    background-color: rgb(0, 41, 83);
-    width: 100%;
-    height: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-}
-
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -242,6 +17,7 @@ nav {
     <div class="navigation-items" id="navigation-items">
       <a href="#features">Features</a>
       <a href="#price">Price</a>
+      <a href="#download">Download</a>
       <a href="#support">Support</a>
       <a href="#faqs">FAQs</a>
       <a href="terms.html">Terms</a>
@@ -253,7 +29,8 @@ nav {
   </nav>
 </header>
 
-<div class="header-container">
+<main>
+<section class="header-container">
   <div class="column-left">
     <div class="logo-container">
       <img class="logo" src="images/icon.jpg" alt="logo">
@@ -266,9 +43,9 @@ nav {
     <p style="background: linear-gradient(45deg, #320051, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 27px;">anytime,</p>
     <p style="background: linear-gradient(45deg, #390025, #ff00a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 27px;">anywhere.</p>
   </div>
-</div>
+</section>
 
-<div class="features-container">
+<section class="features-container">
   <section id="features">
     <h2 class="title">Features</h2>
     <section id="ssh">
@@ -309,18 +86,26 @@ nav {
       <img class="features-img" src="images/iphone15pro_filemanager.png" alt="filemanager">
     </section>
   </section>
-</div>
+</section>
 
-<div class="price-container">
+<section class="price-container">
   <section id="price">
     <h2 class="title" style="color: #00350f">Price</h2>
     <div style="margin-bottom: 20px;">
-      <p style="text-align: center; font-size: 25px; color: rgb(179, 179, 179); text-decoration: line-through;">No bullshit subscription!</p>
-      <p style="text-align: center; font-size: 25px; color: #000000;">Purchase one time, use forever.</p>
-      <p style="text-align: center; font-size: 30px; color: #00345c;">Coming soon...</p>
+      <p style="text-align: center; font-size: 25px; color: rgb(0, 0, 0); text-decoration: line-through;">No bullshit subscription!</p>
+      <p style="text-align: center; font-size: 25px; color: #2d2d2d;">One-time purchase of $29.9, use forever.</p>
     </div>
   </section>
-</div>
+</section>
+
+<section class="download-container">
+  <section id="download">
+    <h2 class="title" style="color: #00350f">Download</h2>
+    <div style="margin-bottom: 20px;">
+      <p style="text-align: center; font-size: 25px; color: #42505b;">Coming soon...</p>
+    </div>
+  </section>
+</section>
 
 <div class="support-container">
   <section id="support">
@@ -329,7 +114,7 @@ nav {
   </section>
 </div>
 
-<div class="faq-container">
+<section class="faq-container">
   <section id="faqs">
     <h2 class="title">FAQs</h2>
     <details class="faq-details">
@@ -376,9 +161,9 @@ nav {
     </details>
 
   </section>
-</div>
+</section>
 
-<div class="privacy-container">
+<section class="privacy-container">
   <div class="column-left">
     <h1 style="font-size: 40px; color: #051C33;">Your privacy matters.</h1>
   </div>
@@ -396,27 +181,15 @@ nav {
       We can't touch them.</br>
     </p>
   </div>
-</div>
-
-</body>
+</section>
+</main>
 
 <footer style="text-align: center; padding: 20px; background-color: #f8f9fa;">
   <p>© 2023 Xany. All rights reserved.</p>
 </footer>
 
-<script>
-let openHam = document.querySelector('#openHam');
-let closeHam = document.querySelector('#closeHam');
-let navigationItems = document.querySelector('#navigation-items');
+<script src="script.js"></script>
 
-const hamburgerEvent = (navigation, close, open) => {
-    navigationItems.style.display = navigation;
-    closeHam.style.display = close;
-    openHam.style.display = open;
-};
-
-openHam.addEventListener('click', () => hamburgerEvent("flex", "block", "none"));
-closeHam.addEventListener('click', () => hamburgerEvent("none", "none", "block"));
-</script>
+</body>
 
 </html>
