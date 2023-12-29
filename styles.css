@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #000;
-  background-color: #fff;
+  background-color: #232323;
 }
 
 .center {
@@ -12,8 +12,9 @@ body {
 }
 
 .title {
+  font-size: 45px;
   text-align: center;
-  font-size: 35px;
+  color: #ffffff;
 }
 
 .subtitle {
@@ -22,7 +23,7 @@ body {
 }
 
 .navigation-header {
-  background-color: #00345c;
+  background-color: #232323;
   padding: 0 15px;
   height: 60px;
   display: flex;
@@ -39,7 +40,7 @@ nav {
 }
 
 .logo-container > a {
-  color: ghostwhite;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   font-size: 26px;
@@ -51,7 +52,7 @@ nav {
 }
 
 .navigation-items > a {
-  color: ghostwhite;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
@@ -59,14 +60,14 @@ nav {
 }
 
 .navigation-items > a:hover {
-  color: rgb(92, 179, 254);
+  color: #dddddd;
 }
 
 .hamburger {
   display: none;
   font-size: 20px;
   font-weight: 800;
-  color: white;
+  color: #ffffff;
 }
 
 .header-container {
@@ -75,89 +76,39 @@ nav {
   display: flex;
 }
 
-.column-left {
-  flex: 1;
-  text-align: right;
-  margin-right: 15px;
+.rounded-bg {
+  width: 500px;
+  max-width: auto;
+  background-color: #303030;
+  border-radius: 25px;
+  padding: 20px;
 }
 
-.column-right {
-  flex: 1;
-  text-align: left;
-  margin-left: 15px;
+.preview-image {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  display: block;
-  margin-left: auto;
-  width: 100px;
-  height: 100px;
-}
-
-
-/* features css */
-.features-container {
+.section-container {
   margin-top: 50px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: aliceblue;
+  color: #ffffff;
 }
 
 .features-img {
   margin-bottom: 10px;
   width: auto;
-  height: 500px;
-  -webkit-filter: drop-shadow(0px 5px 10px #222);
-  filter: drop-shadow(0px 5px 10px #222);
-}
-
-/* price */
-.price-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #fff;
-}
-
-.download-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #fff;
-}
-
-/* support */
-.support-container {
-  margin: auto;
-  padding: 20px;
-  background-color: rgb(228, 242, 254);
-}
-
-/* faq */
-.faq-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
-  text-align: left;
+  height: auto;
+  max-width: 800px; /* maximum width */
+  max-height: 500px; /* maximum height */
+  -webkit-filter: drop-shadow(0px 5px 10px #444444);
+  filter: drop-shadow(0px 5px 10px #343434);
 }
 
 .faq-summary {
@@ -168,42 +119,51 @@ nav {
 }
 
 .faq-details {
+  text-align: left;
   margin-bottom: 10px;
 }
 
 .faq-p {
   padding-left: 20px;
-  margin-bottom: 5px;
+  line-height: 30px;
 }
 
 .faq-cmdtext {
-  color: #fff;
+  color: #ffffff;
   background-color: rgba(10, 5, 42, 0.5);
   border-radius: 5px;
   padding: 5px;
 }
 
 .faq-tabtext {
-  color: #fff;
+  color: #ffffff;
   background-color: rgba(29, 56, 126, 0.5);
   border-radius: 5px;
   padding: 5px;
 }
 
 .faq-apptext {
-  color: #fff;
+  color: #ffffff;
   background-color: rgba(87, 87, 87, 0.5);
   border-radius: 5px;
   padding: 5px;
 }
 
-.privacy-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+.shortcut {
+  color: #ffffff;
+  background-color: rgba(87, 87, 87, 0.5);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.footer {
   text-align: center;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+   padding: 20px;
+   background-color: #232323;
+}
+
+.copyright {
+  color: #ffffff;
 }
 
 @media screen and (max-width: 768px) {
@@ -223,11 +183,22 @@ nav {
     position: absolute;
     right: 0;
     top: 50px;
-    background-color: rgb(0, 41, 83);
+    background-color: rgb(32, 32, 32);
     width: 100%;
     height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+
+  .preview-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .features-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
 
