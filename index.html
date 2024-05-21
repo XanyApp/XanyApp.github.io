@@ -9,62 +9,82 @@
 </head>
 
 <body>
-<header class="navigation-header">
-  <nav>
-    <div class="logo-container">
-      <a href="https://xany.app">Xany</a>
-    </div>
-    <div class="navigation-items" id="navigation-items">
-      <a href="#features">Features</a>
-      <a href="#shortcut">Shortcut</a>
-      <a href="#faqs">FAQs</a>
-      <a href="#support">Support</a>
-      <a href="#privacy">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="releaselog.html">ReleaseLog</a>
-    </div>
-    <div class="hamburger">
-      <span id="openHam">&#9776;</span>
-      <span id="closeHam">&#x2716;</span>
-    </div>
-  </nav>
-</header>
-
-<main>
-<div style="display: flex; margin-top: 55px; align-items: center; justify-content: center;flex-direction: column;">
-  <h1 style="font-size: 60px; color: #ffffff;">Xany</h1> 
-  <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-    <p class="rounded-bg" style="width: 700px; text-align: center; font-size: 25px; color: #eeeeee;">Seamlessly access and manage your servers with SSH,<br>transfer files securely with SFTP, <br>and take control of your desktop using VNC<br>all from the palm of your hand.</p>
+<div class="nav-content">
+  <div class="nav-menu" id="nav-menu">
+    <a href="#features" class="nav-menu-item">Features</a>
+    <a href="#shortcut" class="nav-menu-item">Shortcut</a>
+    <a href="#faqs" class="nav-menu-item">FAQs</a>
+    <a href="#support" class="nav-menu-item">Support</a>
+    <a href="#privacy" class="nav-menu-item">Privacy</a>
+    <a href="terms.html" class="nav-menu-item">Terms</a>
+    <a href="releaselog.html" class="nav-menu-item">ReleaseLog</a>
   </div>
-  <div style="display: flex; margin-top: 50px; align-items: center; justify-content: center;">
-    <img class="preview-image" src="images/preview.png" alt="preview"> 
+  <a href="https://xany.app" class="nav-logo-wrapper w-inline-block w--current">
+    <H1 class="nav-logo" style="font-size: 40px;">Xany</H1>
+  </a>
+  <div class="nav-button">
+    <a href="https://apps.apple.com/us/app/xany/id6474091699">
+      <img class="download-image" src="images/download_from_appstore.svg">
+    </a>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    <span id="openHam" class="menu-icon">
+      <img src="images/hamburger-menu.svg">
+    </span>
+    <span id="closeHam" class="menu-icon">
+      <img src="images/hamburger-close.svg">
+    </span>
   </div>
 </div>
-<div id="price" class="section-container" style="margin-top: 50px;">
-  <div>
-    <h2 class="title">Download</h2>
+
+<main>
+<div class="section-box">
+  <p style="text-align: center; font-size: 40px; color: #000000;">A SSH, SFTP and VNC client for iOS/iPadOS.</p>
+  <p style="text-align: center; font-size: 20px; color: #616161;">Seamlessly access and manage your servers with SSH,<br>transfer files securely with SFTP, <br>and take control of your desktop using VNC<br>all on iPhone or iPad.</p>
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="images/ssh.png" alt="SSh">
+    </div>
+    <div class="slide fade">
+      <img src="images/sftp.png" alt="SFTP">
+    </div>
+    <div class="slide fade">
+      <img src="images/vnc_mac.png" alt="VNC">
+    </div>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
   </div>
-  <div class="rounded-bg">
-    <p style="text-align: center; font-size: 25px; color: #a6a6a6; text-decoration: line-through;">No bullshit subscription</p>
-    <p style="text-align: center; font-size: 25px; color: #ffffff;">One-time purchase of $29.9</p>
+</div>
+
+
+<div id="price" class="section-box">
+  <div>
+    <h2 class="title">Price</h2>
+  </div>
+  <div>
+    <p style="text-align: center; font-size: 25px; color: #717171; text-decoration: line-through;">No bullshit subscription</p>
+    <p style="text-align: center; font-size: 25px; color: #0a3407;">One-time purchase of $29.9</p>
     <a href="https://apps.apple.com/us/app/xany/id6474091699">
       <img class="download-image" src="images/download_from_appstore.svg">
     </a>
   </div>
 </div>
 
-<div id="features" class="section-container">
+<div id="features" class="section-box">
   <h2 class="title">App Features</h2>
   <section id="ssh">
     <h3 class="subtitle">SSH</h3>
-    <p style="font-size: 20px; color: #dddddd;">Connect your servers via ssh.</p>
+    <p style="font-size: 20px; color: #000000;">Connect your servers via ssh.</p>
     <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
       <img class="preview-image" src="images/ssh.png" alt="preview"> 
     </div>
   </section>
   <section id="sftp">
     <h3 class="subtitle">SFTP</h3>
-    <p style="font-size: 20px; color: #dddddd;">Download & Upload. Files & Directory.</p>
+    <p style="font-size: 20px; color: #000000;">Files & Directory. Download & Upload.</p>
     <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
       <img class="preview-image" src="images/sftp.png" alt="preview"> 
     </div>
@@ -74,32 +94,32 @@
   </section>
   <section id="vnc">
     <h3 class="subtitle">VNC Viewer</h3>
-    <p style="font-size: 20px; color: #dddddd">Access Mac.</p>
+    <p style="font-size: 20px; color: #000000">Access Mac.</p>
     <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/mac_vnc.png" alt="preview"> 
+      <img class="preview-image" src="images/vnc_mac.png" alt="preview"> 
     </div>
-    <p style="font-size: 20px; color: #dddddd">Access Ubuntu Desktop.</p>
+    <p style="font-size: 20px; color: #000000">Access Ubuntu Desktop.</p>
     <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/ubuntu_vnc.png" alt="preview"> 
+      <img class="preview-image" src="images/vnc_ubuntu.png" alt="preview"> 
     </div>
   </section>
   <section id="filemanager">
     <h3 class="subtitle">File Manager</h3>
-    <p style="font-size: 20px; color: #dddddd">Viewer & Editor.</p>
+    <p style="font-size: 20px; color: #000000">Viewer & Editor.</p>
     <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/file_manager.png" alt="preview"> 
+      <img class="preview-image" src="images/file_browser.png" alt="preview"> 
     </div>
   </section>
   <section id="multitabs">
     <h3 class="subtitle">Multiple Tabs</h3>
-    <p style="font-size: 20px; color: #dddddd;">Easy switch </p>
+    <p style="font-size: 20px; color: #000000;">Easy switch </p>
     <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
       <img class="preview-image" src="images/multi_tabs.png" alt="preview"> 
     </div>
   </section>
 </div>
 
-<div class="section-container">
+<div class="section-box">
   <h2 class="title">Advanced Features</h2>
   <section id="2fa">
     <h3 class="subtitle">2FA</h3>
@@ -121,104 +141,186 @@
   </section>
 </div>
 
-<div id="shortcut" class="section-container" style="margin-top: 50px;">
-  <div>
-    <h1 style="font-size: 40px; color: #ffffff;">Keyboard Shortcut</h1>
-    <p style="font-size: 20px; color: #eeeeee;">When connected with keyboard</p>
-  </div>
-  <div class="rounded-bg">
-    <p style="font-size: 20px; color: #eeeeee">
-      <span class="shortcut">Shift</span> + <span class="shortcut">Cmd</span> + <span class="shortcut">h</span> : Toggle sidebar.
-    </p>
-    <p style="font-size: 20px; color: #eeeeee">
-      <span class="shortcut">Cmd</span> + <span class="shortcut">,</span> : Toggle Settings.
-    </p>
-    <p style="font-size: 20px; color: #eeeeee">
-      <span class="shortcut">Cmd</span> + <span class="shortcut">t</span> : New terminal.
-    </p>
-    <p style="font-size: 20px; color: #eeeeee">
-      <span class="shortcut">Cmd</span> + <span class="shortcut">[</span> : Switch to previous tab.
-    </p>
-    <p style="font-size: 20px; color: #eeeeee">
-      <span class="shortcut">Cmd</span> + <span class="shortcut">]</span> : Switch to next tab.
-    </p>
-  </div>
-</div>
+<div id="shortcut" class="outer-container">
+  <div class="inner-container">
+    <div>
+      <img src="images/keyboard.svg">
+    </div>
+    <div>
+      <h1 style="font-size: 40px; color: #000000;">Keyboard Shortcut</h1>
+      <p style="font-size: 20px; color: #505050;">When connected with keyboard</p>
+    </div>
 
-<div id="faqs" class="section-container" style="margin-top: 50px;">
-  <div>
-    <h2 class="title">FAQs</h2>
-  </div>
-  <div class="rounded-bg">
-    <details class="faq-details">
-      <summary class="faq-summary">How to enable Screen Sharing (aka VNC) on macOS?</summary>
-      <p class="faq-p">Open <span class="faq-apptext">System Settings</span> -> <span class="faq-tabtext">General</span> -> <span class="faq-tabtext">Sharing</span> -> <span class="faq-tabtext">Screen Sharing</span>, turn on it.</p>
-    </details>
-
-    <details class="faq-details">
-      <summary class="faq-summary">What is the difference between ARD and VNC authentication?</summary>
-      <p class="faq-p">ARD authentication is used by Apple, it uses the username and the password which you used to login you computer to participate in the authentication.</p>
-      <p class="faq-p">VNC authentication is one of the authentications in RFC, it uses the username as same as ARD, but you have to create your own password.</p>
-    </details>
-
-    <details class="faq-details">
-      <summary class="faq-summary">How to setup VNC server on Ubuntu Desktop?</summary>
-      <p class="faq-p">install the x11vnc server:</p>
-      <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install x11vnc</span></p>
-      <p class="faq-p">check the current display manager:</p>
-      <p class="faq-p"><span class="faq-cmdtext">$ cat /etc/X11/default-display-manager</span></p>
-      <p class="faq-p">if it is not the lightdm, you should install it: </p>
-      <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install lightdm</span></p>
-      <p class="faq-p"><span class="faq-cmdtext">$ sudo dpkg-reconfigure lightdm</span></p>
-      <p class="faq-p">choose lightdm</p>
-    </details>
-
-    <details class="faq-details">
-      <summary class="faq-summary">RFB protocol is secure?</summary>
-      <p class="faq-p">No! Only the handshake phase is secure, the others is insecure. There's why you should connect to your VNC server over SSH on public network.</p>
-    </details>
-
-    <details class="faq-details">
-      <summary class="faq-summary">Does the vnc viewer support send text message to the vnc server?</summary>
-      <p class="faq-p">Yes and no. Since both the x11vnc and built-in vnc server on macOS are not support this feature, it does not make sense enabled this feature at the client side.</p>
-    </details>
-
-    <details class="faq-details">
-      <summary class="faq-summary">What key type are supported by Xany?</summary>
-      <p class="faq-p">dsa, ecdsa, ed25519, and rsa. But OpenSSH is disabled dsa key by default since 7.0 release.</p>
-    </details>
-
-    <details class="faq-details">
-      <summary class="faq-summary">Does Xany support curtain mode?</summary>
-      <p class="faq-p">No.</p>
-    </details>
+    <div class="box">
+      <p style="font-size: 20px; color: #000000">
+        <span class="shortcut">Shift</span> + <span class="shortcut">Cmd</span> + <span class="shortcut">h</span> : Toggle sidebar.
+      </p>
+      <p style="font-size: 20px; color: #000000">
+        <span class="shortcut">Cmd</span> + <span class="shortcut">,</span> : Toggle Settings.
+      </p>
+      <p style="font-size: 20px; color: #000000">
+        <span class="shortcut">Cmd</span> + <span class="shortcut">t</span> : New terminal.
+      </p>
+      <p style="font-size: 20px; color: #000000">
+        <span class="shortcut">Cmd</span> + <span class="shortcut">[</span> : Switch to previous tab.
+      </p>
+      <p style="font-size: 20px; color: #000000">
+        <span class="shortcut">Cmd</span> + <span class="shortcut">]</span> : Switch to next tab.
+      </p>
+    </div>
   </div>
 </div>
 
-<div id="support" class="section-container" style="margin-top: 50px;">
+<div id="faqs" class="outer-container">
+  <div class="inner-container"> 
+    <div>
+      <img src="images/faqs.svg">
+    </div>
+    
+    <div>
+      <h2 class="title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-container">
+      <div class="question-container">
+        <div class="question">
+          How to enable Screen Sharing (aka VNC) on macOS?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            <p class="faq-p">Open <span class="faq-apptext">System Settings</span> -> <span class="faq-tabtext">General</span> -> <span class="faq-tabtext">Sharing</span> -> <span class="faq-tabtext">Screen Sharing</span>, turn on it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question">
+          What is the difference between ARD and VNC authentication?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            <p class="faq-p">ARD authentication is used by Apple, it uses the username and the password which you used to login you computer to participate in the authentication.</p>
+            <p class="faq-p">VNC authentication is one of the authentications in RFC, it uses the username as same as ARD, but you have to create your own password.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question">
+          How to setup VNC server on Ubuntu Desktop?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            <p class="faq-p">install the x11vnc server:</p>
+            <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install x11vnc</span></p>
+            <p class="faq-p">check the current display manager:</p>
+            <p class="faq-p"><span class="faq-cmdtext">$ cat /etc/X11/default-display-manager</span></p>
+            <p class="faq-p">if it is not the lightdm, you should install it: </p>
+            <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install lightdm</span></p>
+            <p class="faq-p"><span class="faq-cmdtext">$ sudo dpkg-reconfigure lightdm</span></p>
+            <p class="faq-p">choose lightdm</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question">
+          RFB protocol is secure?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            <p class="faq-p">No! Only the handshake phase is secure, the others is insecure. There's why you should connect to your VNC server over SSH on public network.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question">
+          Does the vnc viewer support send text message to the vnc server?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            <p class="faq-p">Yes and no. Since both the x11vnc and built-in vnc server on macOS are not support this feature, it does not make sense enabled this feature at the client side.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question">
+          What key type are supported by Xany?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            <p class="faq-p">dsa, ecdsa, ed25519, and rsa. But OpenSSH is disabled dsa key by default since 7.0 release.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question">
+          Does Xany support curtain mode?
+          <span class="question-icon">
+            <img src="images/add.svg">
+          </span>
+        </div>
+        <div class="answer-container">
+          <div class="answer">
+            Nope.
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<div id="support" class="section-box">
+  <div>
+    <img src="images/support.svg">
+  </div>
   <div>
     <h2 class="title">Support</h2>
   </div>
-  <div class="rounded-bg">
-    <p style="text-align: center; font-size: 20px; color: #ffffff;">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany" style="color: rgb(0, 140, 255);">Github</a></p>
+  <div>
+    <p style="text-align: center; font-size: 20px; color: #000000;">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany" style="color: rgb(0, 140, 255);">Github</a></p>
   </div>
 </div>
 
-<div id="privacy" class="section-container" style="margin-top: 50px;">
+<div id="privacy" class="section-box">
   <div>
-    <h1 style="font-size: 40px; color: #ffffff;">Your privacy matters.</h1>
+    <img src="images/secure.svg">
   </div>
-  <div class="rounded-bg">
-    <p style="font-size: 20px; color: #eeeeee">
+  <div>
+    <h1 style="font-size: 50px; color: #000000;">Your privacy matters.</h1>
+  </div>
+  <div>
+    <p style="font-size: 30px; color: #000000">
       All of your data are stored in iCloud.
     </p>
-    <p style="font-size: 20px; color: #eeeeee">
+    <p style="font-size: 30px; color: #000000">
       And on your device.
     </p>
-    <p style="font-size: 20px; color: #eeeeee">
+    <p style="font-size: 30px; color: #000000">
       We won't touch them.</br>
     </p>
-    <p style="font-size: 20px; color: #eeeeee">
+    <p style="font-size: 30px; color: #000000">
       We can't touch them.</br>
     </p>
   </div>
