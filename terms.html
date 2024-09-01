@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-UTF8"
 <head>
   <title>Xany Terms of Service</title>
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-  <div style="text-align: center; font-size: 40px; margin-top: 20px;">
-    <a href="https://xany.app" style="text-decoration: none;">Xany</a>
-  </div>
-
-  <div class="section-box">
-    <h1 style="font-size: 40px;">Terms of Service</h1>
-    <h3>Effective Date: Dec 11, 2023</h3>
-  </div>
+<body class="bg-gray-200">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex flex-col justify-between items-center">
+          <a href="#" class="text-white font-bold text-xl">Xany</a>
+          <button class="block md:hidden text-white" onclick="toggleMenu()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <div class="hidden md:flex space-x-4">
+            <a href="https://xany.app" class="text-gray-300 hover:text-white">Home</a>
+            <a href="index.html#features" class="text-gray-300 hover:text-white">Features</a>
+            <a href="index.html#shortcut" class="text-gray-300 hover:text-white">Shortcut</a>
+            <a href="index.html#faqs" class="text-gray-300 hover:text-white">FAQs</a>
+            <a href="index.html#support" class="text-gray-300 hover:text-white">Support</a>
+            <a href="index.html#privacy" class="text-gray-300 hover:text-white">Privacy</a>
+            <a href="terms.html" class="text-gray-300 hover:text-white">Terms</a>
+            <a href="releaselog.html" class="text-gray-300 hover:text-white">Release Log</a>
+          </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
+          <a href="#" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Home</a>
+          <a href="#features" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Features</a>
+          <a href="#shortcut" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Shortcut</a>
+          <a href="#faqs" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">FAQs</a>
+          <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
+          <a href="#privacy" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Privacy</a>
+          <a href="terms.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Terms</a>
+          <a href="releaselog.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+        </div>
+    </nav>
+  <main class="container mx-auto mt-8 p-4 text-center">
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex flex-col justify-center">
+        <div>
+            <h1 class="text-4xl font-bold">Terms of Service</h1>
+        </div>
+        <div class="text-left space-y-4">
+        <h2 class="text-2xl">1. Acceptance of Terms</h2>
+        <p>By accessing or using this service, you agree to accept and abide by all the provisions of these terms. If you do not agree with these terms, please do not use this service.</p>
     
-  <div class="section-content-left">
-    <h2>1. Acceptance of Terms</h2>
-    <p>By accessing or using this service, you agree to accept and abide by all the provisions of these terms. If you do not agree with these terms, please do not use this service.</p>
+        <h2 class="text-2xl">2. Privacy Protection</h2>
+        <p>We do not collect any personal information or data from users. We respect the privacy rights of users and do not track, store, or share your personal information.</p>
+    
+        <h2 class="text-2xl">3. Changes and Termination of Service</h2>
+        <p>We reserve the right to change or terminate this service at any time without prior notice. We will make reasonable efforts to notify users and take measures to mitigate any potential impact.</p>
+    
+        <h2 class="text-2xl">4. Disclaimer</h2>
+        <p>This service is provided on an "as-is" basis, without any express or implied warranties. We do not guarantee the suitability, accuracy, reliability, or completeness of the service.</p>
+    
+        <h2 class="text-2xl">5. Limitation of Liability</h2>
+        <p>To the extent permitted by law, we are not liable for any direct, indirect, incidental, or special damages arising from the use or inability to use this service.</p>
+    
+        <h2 class="text-2xl">6. Other Terms</h2>
+        <p>These terms of service may change at any time, and we will post updated terms on the website. Please check regularly to ensure you are aware of the latest terms.</p>
+      </div>
+    </section>
+  </main>
 
-    <h2>2. Privacy Protection</h2>
-    <p>We do not collect any personal information or data from users. We respect the privacy rights of users and do not track, store, or share your personal information.</p>
-
-    <h2>3. Changes and Termination of Service</h2>
-    <p>We reserve the right to change or terminate this service at any time without prior notice. We will make reasonable efforts to notify users and take measures to mitigate any potential impact.</p>
-
-    <h2>4. Disclaimer</h2>
-    <p>This service is provided on an "as-is" basis, without any express or implied warranties. We do not guarantee the suitability, accuracy, reliability, or completeness of the service.</p>
-
-    <h2>5. Limitation of Liability</h2>
-    <p>To the extent permitted by law, we are not liable for any direct, indirect, incidental, or special damages arising from the use or inability to use this service.</p>
-
-    <h2>6. Other Terms</h2>
-    <p>These terms of service may change at any time, and we will post updated terms on the website. Please check regularly to ensure you are aware of the latest terms.</p>
-  </div>
-
+  <footer class="bg-gray-800 p-4 text-center text-white">
+    &copy; 2024 Xany. All rights reserved.
+  </footer>
 </body>
 </html>

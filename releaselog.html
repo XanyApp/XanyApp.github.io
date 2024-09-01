@@ -1,67 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-UTF8"
+<head>
+  <title>Rlease Log</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
 
-<style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    padding: 10px;
-    gap: 20px;
-  }
 
-  .grid-item1 {
-    padding: 10px;
-    font-size: 25px;
-    text-align: left;
-  }
+<body class="bg-gray-200 p-8">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex flex-col justify-between items-center">
+          <a href="#" class="text-white font-bold text-xl">Xany</a>
+          <button class="block md:hidden text-white" onclick="toggleMenu()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <div class="hidden md:flex space-x-4">
+            <a href="https://xany.app" class="text-gray-300 hover:text-white">Home</a>
+            <a href="index.html#features" class="text-gray-300 hover:text-white">Features</a>
+            <a href="index.html#shortcut" class="text-gray-300 hover:text-white">Shortcut</a>
+            <a href="index.html#faqs" class="text-gray-300 hover:text-white">FAQs</a>
+            <a href="index.html#support" class="text-gray-300 hover:text-white">Support</a>
+            <a href="index.html#privacy" class="text-gray-300 hover:text-white">Privacy</a>
+            <a href="terms.html" class="text-gray-300 hover:text-white">Terms</a>
+            <a href="releaselog.html" class="text-gray-300 hover:text-white">Release Log</a>
+          </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
+          <a href="#" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Home</a>
+          <a href="#features" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Features</a>
+          <a href="#shortcut" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Shortcut</a>
+          <a href="#faqs" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">FAQs</a>
+          <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
+          <a href="#privacy" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Privacy</a>
+          <a href="terms.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Terms</a>
+          <a href="releaselog.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+        </div>
+    </nav>
+    <main class="container mx-auto mt-8 p-4 text-center">
+        <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex flex-col justify-center">
+            <div>
+                <h1 class="text-4xl font-bold">Release Log</h1>
+            </div>
+        </section>
 
-  .grid-item2 {
-    padding: 10px;
-    font-size: 25px;
-    text-align: left;
-  }
+        <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex flex-col justify-center">
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div>v1.1.3</div>
+                <div>Fixed app become no responding in vnc viewer. Updated the UI for vnc viewer.</div>
+                <div>May 21, 2024</div>
 
-  .grid-item3 {
-    padding: 10px;
-    font-size: 25px;
-    text-align: left;
-  }
-</style>
+                <div>v1.1.2</div>
+                <div>Bug fixes and improved user experience.</div>
+                <div>Apr 21, 2024</div>
 
-<body>
-  <div style="text-align: center; font-size: 40px; margin-top: 20px;">
-    <a href="https://xany.app" style="text-decoration: none;">Xany</a>
-  </div>
+                <div>v1.1.2</div>
+                <div>Bug fixes and improved user experience.</div>
+                <div>Apr 21, 2024</div>
 
-  <div style="background-color: #f5f5f5; text-align: center; padding: 60px; margin: 30px; border-radius: 20px;">
-    <h1 style="font-size: 64px;">
-      Release Log
-    </h1>
-  </div>
+                <div>v1.1.1</div>
+                <div>lose current tab when user enter 'exit' in ssh view to close the ssh session.</div>
+                <div>Feb 22, 2024</div>
 
-  <div style="background-color: #f5f5f5; padding: 60px; margin: 30px; border-radius: 20px;">
-    <div class="grid-container">
-      <div class="grid-item1">v1.1.3</div>
-      <div class="grid-item2">Fixed app become no responding in vnc viewer. Updated the UI for vnc viewer.</div>
-      <div class="grid-item3">May 21, 2024</div>
+                <div>v1.1.0</div>
+                <div>Support custom lock screen shortcut for VNC viewer.</div>
+                <div>Jan 14, 2024</div>
+                
+                <div>v1.0.0</div>
+                <div>Inintial release</div>
+                <div>Jan 7, 2023</div>
+            </div>
+        </section>
+    </main>
 
-      <div class="grid-item1">v1.1.2</div>
-      <div class="grid-item2">Bug fixes and improved user experience.</div>
-      <div class="grid-item3">Apr 21, 2024</div>
-
-      <div class="grid-item1">v1.1.1</div>
-      <div class="grid-item2">Close current tab when user enter 'exit' in ssh view to close the ssh session.</div>
-      <div class="grid-item3">Feb 22, 2024</div>
-
-      <div class="grid-item1">v1.1.0</div>
-      <div class="grid-item2">Support custom lock screen shortcut for VNC viewer.</div>
-      <div class="grid-item3">Jan 14, 2024</div>
-
-      <div class="grid-item1">v1.0.0</div>
-      <div class="grid-item2">Initial release.</div>
-      <div class="grid-item3">Jan 7, 2023</div>
-    </div>
-  </div>
-
+    <footer class="bg-gray-800 p-4 text-center text-white">
+    &copy; 2024 Xany. All rights reserved.
+  </footer>
 </body>
+
 </html>

@@ -1,340 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xany</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xany</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .shortcut {
+      color: #000000;
+      background-color: rgba(87, 87, 87, 0.5);
+      border-radius: 5px;
+      padding: 5px;
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    let slideIndex = 0;
+
+    function showSlides() {
+      const slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.add('hidden');
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].classList.remove('hidden');
+      setTimeout(showSlides, 3000);
+    }
+
+    window.onload = function() {
+      showSlides();
+    };
+
+    function toggleFAQ(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+  }
+  </script>
 </head>
 
-<body>
-<div class="nav-content">
-  <div class="nav-menu" id="nav-menu">
-    <a href="#features" class="nav-menu-item">Features</a>
-    <a href="#shortcut" class="nav-menu-item">Shortcut</a>
-    <a href="#faqs" class="nav-menu-item">FAQs</a>
-    <a href="#support" class="nav-menu-item">Support</a>
-    <a href="#privacy" class="nav-menu-item">Privacy</a>
-    <a href="terms.html" class="nav-menu-item">Terms</a>
-    <a href="releaselog.html" class="nav-menu-item">ReleaseLog</a>
-  </div>
-  <a href="https://xany.app" class="nav-logo-wrapper w-inline-block w--current">
-    <H1 class="nav-logo" style="font-size: 40px;">Xany</H1>
-  </a>
-  <div class="nav-button">
-    <a href="https://apps.apple.com/us/app/xany/id6474091699">
-      <img class="download-image" src="images/download_from_appstore.svg">
-    </a>
-  </div>
-  <div class="hamburger-menu" onclick="toggleMenu()">
-    <span id="openHam" class="menu-icon">
-      <img src="images/hamburger-menu.svg">
-    </span>
-    <span id="closeHam" class="menu-icon">
-      <img src="images/hamburger-close.svg">
-    </span>
-  </div>
-</div>
+<body class="bg-gray-200">
+  <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex flex-col justify-between items-center">
+      <a href="#" class="text-white font-bold text-xl">Xany</a>
+      <button class="block md:hidden text-white" onclick="toggleMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="text-gray-300 hover:text-white">Home</a>
+        <a href="#features" class="text-gray-300 hover:text-white">Features</a>
+        <a href="#shortcut" class="text-gray-300 hover:text-white">Shortcut</a>
+        <a href="#faqs" class="text-gray-300 hover:text-white">FAQs</a>
+        <a href="#support" class="text-gray-300 hover:text-white">Support</a>
+        <a href="#privacy" class="text-gray-300 hover:text-white">Privacy</a>
+        <a href="terms.html" class="text-gray-300 hover:text-white">Terms</a>
+        <a href="releaselog.html" class="text-gray-300 hover:text-white">Release Log</a>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
+      <a href="#" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Home</a>
+      <a href="#features" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Features</a>
+      <a href="#shortcut" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Shortcut</a>
+      <a href="#faqs" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">FAQs</a>
+      <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
+      <a href="#privacy" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Privacy</a>
+      <a href="terms.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Terms</a>
+      <a href="releaselog.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+    </div>
+  </nav>
 
-<main>
-<div class="section-box">
-  <p style="text-align: center; font-size: 40px; color: #000000;">A SSH, SFTP and VNC client for iOS/iPadOS.</p>
-  <p style="text-align: center; font-size: 20px; color: #616161;">Seamlessly access and manage your servers with SSH,<br>transfer files securely with SFTP, <br>and take control of your desktop using VNC<br>all on iPhone or iPad.</p>
-  <div class="slideshow-container">
-    <div class="slide fade">
-      <img src="images/ssh.png" alt="SSh">
-    </div>
-    <div class="slide fade">
-      <img src="images/sftp.png" alt="SFTP">
-    </div>
-    <div class="slide fade">
-      <img src="images/vnc_mac.png" alt="VNC">
-    </div>
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-  </div>
-</div>
+  <main class="container mx-auto mt-8 p-4">
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div class="w-2/3 flex items-center justify-center">
+        <div>
+          <h1 class="text-3xl font-bold mb-4 text-center">A SSH, SFTP and VNC client for iOS/iPadOS</h1>
+          <p class="text-gray-700 text-xl text-center">Seamlessly access and manage your servers with SSH,<br>transfer files securely with SFTP, <br>and take control of your desktop using VNC<br>all on iPhone or iPad.</p>
+        </div>
+      </div>
 
+      <div class="flex items-center justify-center">
+      <div class="relative w-full max-w-full mx-auto mb-8">
+        <div class="slide hidden">
+          <img src="images/ssh.png" alt="SSH" class="w-full">
+        </div>
+        <div class="slide hidden">
+          <img src="images/sftp.png" alt="SFTP" class="w-full">
+        </div>
+        <div class="slide hidden">
+          <img src="images/vnc_mac.png" alt="VNC" class="w-full">
+        </div>
+      </div>
+      </div>
+    </section>
 
-<div id="price" class="section-box">
-  <div>
-    <h2 class="title">Price</h2>
-  </div>
-  <div>
-    <p style="text-align: center; font-size: 25px; color: #717171; text-decoration: line-through;">No bullshit subscription</p>
-    <p style="text-align: center; font-size: 25px; color: #0a3407;">One-time purchase of $29.9</p>
-    <a href="https://apps.apple.com/us/app/xany/id6474091699">
-      <img class="download-image" src="images/download_from_appstore.svg">
-    </a>
-  </div>
-</div>
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-center mb-6">Price</h2>
+        <div class="grid grid-cols-1 gap-8 justify-items-center">
+          <p class="line-through">No bullshift subscription</p>
+          <p class="text-xl font-bold text-blue-500 mb-4">One-time purchase of $19.99</p>
+          <a href="https://apps.apple.com/us/app/xany/id6474091699">
+            <img class="download-image mx-auto" src="images/download_from_appstore.svg">
+          </a>
+        </div>
+      </div>
+    </section>
 
-<div id="features" class="section-box">
-  <h2 class="title">App Features</h2>
-  <section id="ssh">
-    <h3 class="subtitle">SSH</h3>
-    <p style="font-size: 20px; color: #000000;">Connect your servers via ssh.</p>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/ssh.png" alt="preview"> 
-    </div>
-  </section>
-  <section id="sftp">
-    <h3 class="subtitle">SFTP</h3>
-    <p style="font-size: 20px; color: #000000;">Files & Directory. Download & Upload.</p>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/sftp.png" alt="preview"> 
-    </div>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/upload_download.png" alt="preview"> 
-    </div>
-  </section>
-  <section id="vnc">
-    <h3 class="subtitle">VNC Viewer</h3>
-    <p style="font-size: 20px; color: #000000">Access Mac.</p>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/vnc_mac.png" alt="preview"> 
-    </div>
-    <p style="font-size: 20px; color: #000000">Access Ubuntu Desktop.</p>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/vnc_ubuntu.png" alt="preview"> 
-    </div>
-  </section>
-  <section id="filemanager">
-    <h3 class="subtitle">File Manager</h3>
-    <p style="font-size: 20px; color: #000000">Viewer & Editor.</p>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/file_browser.png" alt="preview"> 
-    </div>
-  </section>
-  <section id="multitabs">
-    <h3 class="subtitle">Multiple Tabs</h3>
-    <p style="font-size: 20px; color: #000000;">Easy switch </p>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/multi_tabs.png" alt="preview"> 
-    </div>
-  </section>
-</div>
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="features" class="text-center">
+        <h2 class="text-2xl font-bold text-center mb-6">Features</h2>
+        <div class="flex flex-col items-center justify-center p-4">
+          <h3 class="text-1xl font-bold text-center mb-6">SSH</h3>
+          <img src="images/ssh.png" class="max-w-full h-auto" alt="SSH">
+        </div>
 
-<div class="section-box">
-  <h2 class="title">Advanced Features</h2>
-  <section id="2fa">
-    <h3 class="subtitle">2FA</h3>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/2fa.png" alt="preview"> 
-    </div>
-  </section>
-  <section id="vnc">
-    <h3 class="subtitle">Agent Forwarding</h3>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/agent_forwarding.png" alt="preview"> 
-    </div>
-  </section>
-  <section id="vnc">
-    <h3 class="subtitle">Port Forwarding</h3>
-    <div style="display: flex; margin-top: 20px; align-items: center; justify-content: center;">
-      <img class="preview-image" src="images/port_forwarding.png" alt="preview"> 
-    </div>
-  </section>
-</div>
+        <div class="flex flex-col items-center justify-center p-4">
+          <h3 class="text-1xl font-bold text-center mb-6">SFTP</h3>
+          <p>Files & Directory. Download & Upload.</p>
+          <img src="images/sftp.png">
+        </div>
 
-<div id="shortcut" class="outer-container">
-  <div class="inner-container">
-    <div>
-      <img src="images/keyboard.svg">
-    </div>
-    <div>
-      <h1 style="font-size: 40px; color: #000000;">Keyboard Shortcut</h1>
-      <p style="font-size: 20px; color: #505050;">When connected with keyboard</p>
-    </div>
+        <div class="flex flex-col items-center justify-center p-4">
+          <h3 class="text-1xl font-bold text-center mb-6">VNC View</h3>
+          <p>Access Mac.</p>
+          <img src="images/vnc_mac.png">
+          <p>Access Ubuntu Desktop.</p>
+          <img src="images/vnc_ubuntu.png">
+        </div>
 
-    <div class="box">
-      <p style="font-size: 20px; color: #000000">
-        <span class="shortcut">Shift</span> + <span class="shortcut">Cmd</span> + <span class="shortcut">h</span> : Toggle sidebar.
-      </p>
-      <p style="font-size: 20px; color: #000000">
-        <span class="shortcut">Cmd</span> + <span class="shortcut">,</span> : Toggle Settings.
-      </p>
-      <p style="font-size: 20px; color: #000000">
-        <span class="shortcut">Cmd</span> + <span class="shortcut">t</span> : New terminal.
-      </p>
-      <p style="font-size: 20px; color: #000000">
-        <span class="shortcut">Cmd</span> + <span class="shortcut">[</span> : Switch to previous tab.
-      </p>
-      <p style="font-size: 20px; color: #000000">
-        <span class="shortcut">Cmd</span> + <span class="shortcut">]</span> : Switch to next tab.
-      </p>
-    </div>
-  </div>
-</div>
+        <div class="flex flex-col items-center justify-center p-4">
+          <h3 class="text-1xl font-bold text-center mb-6">File Manager</h3>
+          <p>Viewer & Editor</p>
+          <img src="images/file_browser.png">
+        </div>
 
-<div id="faqs" class="outer-container">
-  <div class="inner-container"> 
-    <div>
-      <img src="images/faqs.svg">
-    </div>
+        <div class="flex flex-col items-center justify-center p-4">
+          <h3 class="text-1xl font-bold text-center mb-6">Multiple Tabs</h3>
+          <p>Easy switch back and forth</p>
+          <img src="images/multi_tabs.png">
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div>
+        <div class="text-center">
+          <h2 class="text-2xl font-bold text-center mb-6">Advanced Features</h2>
+          <div class="flex flex-col items-center justify-center p-4">
+            <h3 class="text-1xl font-bold text-center mb-6">2FA</h3>
+            <img src="images/2fa.png">
+          </div>
+
+          <div class="flex flex-col items-center justify-center p-4">
+            <h3 class="text-1xl font-bold text-center mb-6">Agent Forwarding</h3>
+            <img src="images/agent_forwarding.png">
+          </div>
+
+          <div class="flex flex-col items-center justify-center p-4">
+            <h3 class="text-1xl font-bold text-center mb-6">Port Forwarding</h3>
+            <img src="images/port_forwarding.png">
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="shortcut" class="text-center">
+        <img src="images/keyboard.svg" class="mx-auto">
+        <h2 class="text-2xl font-bold mb-6">Keyboard Shortcut</h2>
+        <div class="w-full max-w-2xl items-center text-left">
+          <p class="text-lg text-black">
+            <span class="bg-gray-200 py-1 px-2 rounded">Shift</span> + 
+            <span class="bg-gray-200 py-1 px-2 rounded">Cmd</span> + 
+            <span class="bg-gray-200 py-1 px-2 rounded">h</span> : Toggle sidebar.
+          </p>
+          <p class="text-lg text-black">
+            <span class="bg-gray-200 py-1 px-2 rounded">Cmd</span> + 
+            <span class="bg-gray-200 py-1 px-2 rounded">,</span> : Toggle Settings.
+          </p>
+          <p class="text-lg text-black">
+            <span class="bg-gray-200 py-1 px-2 rounded">Cmd</span> + 
+            <span class="bg-gray-200 py-1 px-2 rounded">t</span> : New terminal.
+          </p>
+          <p class="text-lg text-black">
+            <span class="bg-gray-200 py-1 px-2 rounded">Cmd</span> + 
+            <span class="bg-gray-200 py-1 px-2 rounded">[</span> : Switch to previous tab.
+          </p>
+          <p class="text-lg text-black">
+            <span class="bg-gray-200 py-1 px-2 rounded">Cmd</span> + 
+            <span class="bg-gray-200 py-1 px-2 rounded">]</span> : Switch to next tab.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="faqs" class="text-center">
+        <img src="images/faqs.svg" class="mx-auto">
+
+        <h2 class="text-2xl font-bold text-center mb-6">FAQs</h2>
+
+        <div class="space-y-4">
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold">How to enable Screen Sharing on macOS?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden">
+              <p class="text-gray-700"><p class="faq-p">Open <span class="faq-apptext">System Settings</span> -> <span class="faq-tabtext">General</span> -> <span class="faq-tabtext">Sharing</span> -> <span class="faq-tabtext">Screen Sharing</span>, turn on it.</p></p>
+            </div>
+          </div>
     
-    <div>
-      <h2 class="title">Frequently Asked Questions</h2>
-    </div>
-
-    <div class="faq-container">
-      <div class="question-container">
-        <div class="question">
-          How to enable Screen Sharing (aka VNC) on macOS?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            <p class="faq-p">Open <span class="faq-apptext">System Settings</span> -> <span class="faq-tabtext">General</span> -> <span class="faq-tabtext">Sharing</span> -> <span class="faq-tabtext">Screen Sharing</span>, turn on it.</p>
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold">What is the difference between ARD and VNC authentication?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden text-left">
+              <p class="text-gray-700">ARD authentication is used by Apple, it uses the username and the password which you used to login you computer to participate in the authentication.</p>
+              <p class="text-gray-700">VNC authentication is one of the authentications in RFC, it uses the username as same as ARD, but you have to create your own password.</p>
+            </div>
           </div>
+    
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold"> How to setup VNC server on Ubuntu Desktop?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden text-left">
+              <p class="text-base text-gray-700">Install the x11vnc server:</p>
+              <p class="text-base text-gray-900">
+                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-md font-mono">$ sudo apt install x11vnc</span>
+              </p>
+              <p class="text-base text-gray-700">Check the current display manager:</p>
+              <p class="text-base text-gray-900">
+                  <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-md font-mono">$ cat /etc/X11/default-display-manager</span>
+              </p>
+              <p class="text-base text-gray-700">If it is not lightdm, you should install it:</p>
+              <p class="text-base text-gray-900">
+                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-md font-mono">$ sudo apt install lightdm</span>
+              </p>
+              <p class="text-base text-gray-900">
+                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-md font-mono">$ sudo dpkg-reconfigure lightdm</span>
+              </p>
+              <p class="text-base text-gray-700">Choose lightdm</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold">RFB protocol is secure?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden text-left">
+              <p class="text-gray-700">No! Only the handshake phase is secure, the others is insecure. There's why you should connect to your VNC server over SSH on public network.</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold">Does the vnc viewer support send text message to the vnc server?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden text-left">
+              <p class="text-gray-700">Yes and no. Since both the x11vnc and built-in vnc server on macOS are not support this feature, it does not make sense enabled this feature at the client side.</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold">What key type are supported by Xany?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden text-left">
+              <p class="text-gray-700">dsa, ecdsa, ed25519, and rsa. But OpenSSH is disabled dsa key by default since 7.0 release.</p>
+            </div>
+          </div>
+
+          <div class="border border-gray-300 rounded-lg">
+            <button class="w-full px-4 py-2 text-left bg-gray-200 border-b border-gray-300 focus:outline-none" onclick="toggleFAQ(this)">
+              <span class="text-lg font-semibold">Does Xany support curtain mode?</span>
+              <svg class="w-6 h-6 inline-block float-right transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="px-4 py-2 hidden text-left">
+              <p class="text-gray-700">Nope.</p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="support" class="text-center">
+        <img src="images/support.svg" class="mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-6">Support</h2>
+        <p class="text-gray-700">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany">Github</a></p>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="privacy" class="text-center items-center">
+        <img src="images/secure.svg" class="mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-6">Privacy</h2>
+        <div class="space-y-4">
+          <p class="text-3xl text-black">
+            All of your data are stored in iCloud.
+          </p>
+          <p class="text-3xl text-black">
+            And on your device.
+          </p>
+          <p class="text-3xl text-black">
+            We won't touch them.<br>
+          </p>
+          <p class="text-3xl text-black">
+            We can't touch them.<br>
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="question-container">
-        <div class="question">
-          What is the difference between ARD and VNC authentication?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            <p class="faq-p">ARD authentication is used by Apple, it uses the username and the password which you used to login you computer to participate in the authentication.</p>
-            <p class="faq-p">VNC authentication is one of the authentications in RFC, it uses the username as same as ARD, but you have to create your own password.</p>
-          </div>
-        </div>
-      </div>
+  </main>
 
-      <div class="question-container">
-        <div class="question">
-          How to setup VNC server on Ubuntu Desktop?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            <p class="faq-p">install the x11vnc server:</p>
-            <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install x11vnc</span></p>
-            <p class="faq-p">check the current display manager:</p>
-            <p class="faq-p"><span class="faq-cmdtext">$ cat /etc/X11/default-display-manager</span></p>
-            <p class="faq-p">if it is not the lightdm, you should install it: </p>
-            <p class="faq-p"><span class="faq-cmdtext">$ sudo apt install lightdm</span></p>
-            <p class="faq-p"><span class="faq-cmdtext">$ sudo dpkg-reconfigure lightdm</span></p>
-            <p class="faq-p">choose lightdm</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question">
-          RFB protocol is secure?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            <p class="faq-p">No! Only the handshake phase is secure, the others is insecure. There's why you should connect to your VNC server over SSH on public network.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question">
-          Does the vnc viewer support send text message to the vnc server?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            <p class="faq-p">Yes and no. Since both the x11vnc and built-in vnc server on macOS are not support this feature, it does not make sense enabled this feature at the client side.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question">
-          What key type are supported by Xany?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            <p class="faq-p">dsa, ecdsa, ed25519, and rsa. But OpenSSH is disabled dsa key by default since 7.0 release.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="question-container">
-        <div class="question">
-          Does Xany support curtain mode?
-          <span class="question-icon">
-            <img src="images/add.svg">
-          </span>
-        </div>
-        <div class="answer-container">
-          <div class="answer">
-            Nope.
-          </div>
-        </div>
-      </div>
-    </div> 
-  </div>
-</div>
-
-<div id="support" class="section-box">
-  <div>
-    <img src="images/support.svg">
-  </div>
-  <div>
-    <h2 class="title">Support</h2>
-  </div>
-  <div>
-    <p style="text-align: center; font-size: 20px; color: #000000;">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany" style="color: rgb(0, 140, 255);">Github</a></p>
-  </div>
-</div>
-
-<div id="privacy" class="section-box">
-  <div>
-    <img src="images/secure.svg">
-  </div>
-  <div>
-    <h1 style="font-size: 50px; color: #000000;">Your privacy matters.</h1>
-  </div>
-  <div>
-    <p style="font-size: 30px; color: #000000">
-      All of your data are stored in iCloud.
-    </p>
-    <p style="font-size: 30px; color: #000000">
-      And on your device.
-    </p>
-    <p style="font-size: 30px; color: #000000">
-      We won't touch them.</br>
-    </p>
-    <p style="font-size: 30px; color: #000000">
-      We can't touch them.</br>
-    </p>
-  </div>
-</div>
-
-
-</main>
-
-<footer class="footer">
-  <p class="copyright">© 2023 Xany. All rights reserved.</p>
-</footer>
-
-<script src="script.js"></script>
-
+  <footer class="bg-gray-800 p-4 text-center text-white">
+    &copy; 2024 Xany. All rights reserved.
+  </footer>
 </body>
-
 </html>
