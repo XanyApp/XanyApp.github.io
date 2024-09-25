@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xany VNC</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function toggleFAQ(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleDropdown() {
+      const mobileDropdown = document.getElementById('mobile-dropdown');
+      mobileDropdown.classList.toggle('hidden');
+    }
+  </script>
+</head>
+
+<body>
+
+  <nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="#" class="flex items-center text-white font-bold text-xl">
+      <img src="images/xany_vnc/icon.png" alt="Xany Logo" class="w-8 h-8 mr-2 rounded-md">
+      Xany VNC
+    </a>
+    <button class="block md:hidden text-white" onclick="toggleMenu()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    <div class="hidden md:flex space-x-4">
+      <div class="relative group">
+        <a class="text-gray-300 hover:text-white flex items-center space-x-1 cursor-pointer">
+          <span>Product</span>
+          <svg class="w-4 h-4 transform group-hover:rotate-180 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+        <div class="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <a href="index.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xany</a>
+          <a href="xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xanyd</a>
+        </div>
+      </div>
+      <a href="#gestures" class="text-gray-300 hover:text-white">Gestures</a>
+      <a href="#download" class="text-gray-300 hover:text-white">Download</a>
+      <a href="#support" class="text-gray-300 hover:text-white">Support</a>
+      <a href="#releaselog" class="text-gray-300 hover:text-white">Release Log</a>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
+    <div class="relative">
+      <button onclick="toggleDropdown()" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded flex justify-between items-center w-full">
+        Product
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div id="mobile-dropdown" class="hidden flex flex-col bg-gray-700 text-white rounded-md mt-1">
+        <a href="index.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xany</a>
+        <a href="xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xanyd</a>
+      </div>
+    </div>
+    <a href="#gestures" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Gestures</a>
+    <a href="#download" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Download</a>
+    <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
+    <a href="#releaselog" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+  </div>
+  </nav>
+
+  <main class="container mx-auto mt-8 p-4">
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div class="w-2/3 flex flex-col items-center justify-center">
+        <div class="text-center">
+          <p class="mt-4 font-bold text-4xl">A VNC client for Apple platforms.</p>
+          <p class="mt-4 text-gray-500 text-1xl">macOS 11.0+<span class="mx-2">|</span>iOS/iPadOS 17.0+<span class="mx-2">|</span>VisionOS 1.0+</p>
+        </div>
+        <ul class="list-disc mt-4">
+          <li class="text-2xl text-gray-500">
+            Compatible with standard VNC servers
+          </li>
+          <li class="text-2xl text-gray-500">
+            Supports None, VNC and ARD authentications
+          </li>
+        </ul>
+        <p class="text-2xl font-semibold text-gray-700 mt-2 mb-2">
+          When connected to <a href="xanyd.html" class="text-blue-500 hover:underline">Xanyd</a>, you will get:
+        </p>
+        <ul class="list-disc">
+          <li class="text-2xl text-gray-600">
+            Secure connection (TLS 1.3)
+          </li>
+          <li class="text-2xl text-gray-600">
+            Multiple displays
+          </li>
+          <li class="text-2xl text-gray-600">
+            Curtain mode
+          </li>
+        </ul>
+        <div>
+          <img src="images/xany_vnc/all_platforms.png">
+          <img src="images/xany_vnc/VisionPro.png">
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="gestures">
+        <h2 class="text-2xl font-bold text-center mb-6">Gestures</h2>
+        <h3 class="text-1xl font-semibold">On iOS</h3>
+        <ul class="list-disc">
+          <li class="text-gray-500">
+            Single tap for click
+          </li>
+          <li class="text-gray-500">
+            Double tap for double click
+          </li>
+          <li class="text-gray-500">
+            Long press for right click
+          </li>
+          <li class="text-gray-500">
+            Moving with single finger for moving cursor
+          </li>
+          <li class="text-gray-500">
+            Scrolling with two fingers for scrolling content
+          </li>
+          <li class="text-gray-500">
+           Scrolling with three fingers for selecting content
+          </li>
+        </ul>
+        <h3 class="text-1xl font-semibold mt-3">On Vision Pro</h3>
+        <ul>
+          <li class="text-gray-500"></li>
+          <li class="text-gray-500"></li>
+          <li class="text-gray-500"></li>
+          <li class="text-gray-500"></li>
+          <li class="text-gray-500"></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="download" class="text-center">
+        <h2 class="text-2xl font-bold text-center mb-6">Price</h2>
+        <div class="grid grid-cols-1 gap-8 justify-items-center">
+          <p class="line-through">No bullshift subscription</p>
+          <p class="text-xl font-bold text-blue-500 mb-4">One-time purchase of $9.99, available on all platforms.</p>
+          <a href="https://apps.apple.com/us/app/xany/id6514319627">
+            <img class="download-image mx-auto" src="images/download_from_appstore.svg">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="support" class="text-center">
+        <img src="images/support.svg" class="mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-6">Support</h2>
+        <p class="text-gray-700">
+          Report bugs or Request features at 
+          <a href="https://github.com/XanyApp/XanyVNC" class="text-blue-500 hover:underline">Github</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
+      <div id="releaselog" class="text-center">
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold">Release Log</h1>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>v1.0</div>
+          <div>Inintial release</div>
+          <div>Sep 26, 2024</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300 py-8">
+    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Menu</h3>
+        <ul>
+          <li class="mb-2"><a href="#" class="hover:underline">Home</a></li>
+          <li class="mb-2"><a href="#features" class="hover:underline">Features</a></li>
+          <li class="mb-2"><a href="#download" class="hover:underline">Download</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Product</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html" class="hover:underline">Xany</a></li>
+          <li class="mb-2"><a href="xany_vnc.html" class="hover:underline">Xany VNC</a></li>
+          <li class="mb-2"><a href="xanyd.html" class="hover:underline">Xanyd</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Privacy & Terms</h3>
+        <ul>
+          <li class="mb-2"><a href="privacy.html" class="hover:underline">Privacy</a></li>
+          <li class="mb-2"><a href="terms.html" class="hover:underline">Terms</a></li>
+        </ul>
+      </div>
+  
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Support</h3>
+        <ul>
+          <li class="mb-2"><a href="mailto:support@xany.app" class="hover:underline">Contact</a></li>
+          <li class="mb-2"><a href="#releaselog" class="hover:underline">Release Log</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="border-t border-gray-700 mt-8 pt-4 px-4 flex justify-center items-center">
+      <p class="text-sm">&copy; 2024 Xany. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

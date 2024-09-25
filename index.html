@@ -16,11 +16,6 @@
   </style>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    }
-
     let slideIndex = 0;
 
     function showSlides() {
@@ -40,6 +35,11 @@
       showSlides();
     };
 
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
     function toggleFAQ(button) {
       const content = button.nextElementSibling;
       const icon = button.querySelector('svg');
@@ -50,39 +50,67 @@
         content.classList.add('hidden');
         icon.classList.remove('rotate-180');
       }
-  }
+    }
+
+    function toggleDropdown() {
+      const mobileDropdown = document.getElementById('mobile-dropdown');
+      mobileDropdown.classList.toggle('hidden');
+    }
   </script>
 </head>
 
 <body class="bg-gray-200">
   <nav class="bg-gray-800 p-4">
-    <div class="container mx-auto flex flex-col justify-between items-center">
-      <a href="#" class="text-white font-bold text-xl">Xany</a>
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="flex items-center text-white font-bold text-xl">
+        <img src="images/icon.png" alt="Xany Logo" class="w-8 h-8 mr-2 rounded-md">
+        Xany
+      </a>
+
       <button class="block md:hidden text-white" onclick="toggleMenu()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
+
       <div class="hidden md:flex space-x-4">
-        <a href="#" class="text-gray-300 hover:text-white">Home</a>
+        <div class="relative group">
+          <a class="text-gray-300 hover:text-white flex items-center space-x-1 cursor-pointer">
+            <span>Product</span>
+            <svg class="w-4 h-4 transform group-hover:rotate-180 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="xany_vnc.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xany VNC</a>
+            <a href="Xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xanyd</a>
+          </div>
+        </div>
         <a href="#features" class="text-gray-300 hover:text-white">Features</a>
         <a href="#shortcut" class="text-gray-300 hover:text-white">Shortcut</a>
         <a href="#faqs" class="text-gray-300 hover:text-white">FAQs</a>
         <a href="#support" class="text-gray-300 hover:text-white">Support</a>
-        <a href="#privacy" class="text-gray-300 hover:text-white">Privacy</a>
-        <a href="terms.html" class="text-gray-300 hover:text-white">Terms</a>
-        <a href="releaselog.html" class="text-gray-300 hover:text-white">Release Log</a>
+        <a href="#releaselog" class="text-gray-300 hover:text-white">Release Log</a>
       </div>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
-      <a href="#" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Home</a>
+      <div class="relative">
+        <button onclick="toggleDropdown()" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded flex justify-between items-center w-full">
+          Product
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="mobile-dropdown" class="hidden flex flex-col bg-gray-700 text-white rounded-md mt-1">
+          <a href="XaynVNC.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xany VNC</a>
+          <a href="Xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xanyd</a>
+        </div>
+      </div>
       <a href="#features" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Features</a>
       <a href="#shortcut" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Shortcut</a>
       <a href="#faqs" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">FAQs</a>
       <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
-      <a href="#privacy" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Privacy</a>
-      <a href="terms.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Terms</a>
-      <a href="releaselog.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+      <a href="#releaselog" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
     </div>
   </nav>
 
@@ -111,7 +139,7 @@
     </section>
 
     <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
-      <div class="text-center">
+      <div id="download" class="text-center">
         <h2 class="text-2xl font-bold text-center mb-6">Price</h2>
         <div class="grid grid-cols-1 gap-8 justify-items-center">
           <p class="line-through">No bullshift subscription</p>
@@ -326,35 +354,88 @@
       <div id="support" class="text-center">
         <img src="images/support.svg" class="mx-auto">
         <h2 class="text-2xl font-bold text-center mb-6">Support</h2>
-        <p class="text-gray-700">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany">Github</a></p>
+        <p class="text-gray-700">Report bugs or Request features at <a href="https://github.com/XanyApp/Xany" class="text-blue-500 hover:underline">Github</a></p>
       </div>
     </section>
 
     <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
-      <div id="privacy" class="text-center items-center">
-        <img src="images/secure.svg" class="mx-auto">
-        <h2 class="text-2xl font-bold text-center mb-6">Privacy</h2>
-        <div class="space-y-4">
-          <p class="text-3xl text-black">
-            All of your data are stored in iCloud.
-          </p>
-          <p class="text-3xl text-black">
-            And on your device.
-          </p>
-          <p class="text-3xl text-black">
-            We won't touch them.<br>
-          </p>
-          <p class="text-3xl text-black">
-            We can't touch them.<br>
-          </p>
+      <div id="releaselog" class="text-center">
+        <div class="mb-8">
+          <h1 class="text-2xl font-bold">Release Log</h1>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>v1.1.3</div>
+          <div>Fixed app become no responding in vnc viewer. Updated the UI for vnc viewer.</div>
+          <div>May 21, 2024</div>
+
+          <div>v1.1.2</div>
+          <div>Bug fixes and improved user experience.</div>
+          <div>Apr 21, 2024</div>
+
+          <div>v1.1.2</div>
+          <div>Bug fixes and improved user experience.</div>
+          <div>Apr 21, 2024</div>
+
+          <div>v1.1.1</div>
+          <div>Close current tab when user enter 'exit' in ssh view to close the ssh session.</div>
+          <div>Feb 22, 2024</div>
+
+          <div>v1.1.0</div>
+          <div>Support custom lock screen shortcut for VNC viewer.</div>
+          <div>Jan 14, 2024</div>
+
+          <div>v1.0.0</div>
+          <div>Inintial release</div>
+          <div>Jan 7, 2023</div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer class="bg-gray-800 p-4 text-center text-white">
-    &copy; 2024 Xany. All rights reserved.
+  <footer class="bg-gray-800 text-gray-300 py-8">
+    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Menu</h3>
+        <ul>
+          <li class="mb-2"><a href="#" class="hover:underline">Home</a></li>
+          <li class="mb-2"><a href="#features" class="hover:underline">Features</a></li>
+          <li class="mb-2"><a href="#download" class="hover:underline">Download</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Product</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html" class="hover:underline">Xany</a></li>
+          <li class="mb-2"><a href="xany_vnc.html" class="hover:underline">Xany VNC</a></li>
+          <li class="mb-2"><a href="xanyd.html" class="hover:underline">Xanyd</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Privacy & Terms</h3>
+        <ul>
+          <li class="mb-2"><a href="terms.html" class="hover:underline">Terms</a></li>
+          <li class="mb-2"><a href="privacy.html" class="hover:underline">Privacy</a></li>
+        </ul>
+      </div>
+  
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Support</h3>
+        <ul>
+          <li class="mb-2"><a href="#shortcut" class="hover:underline">Shortcut</a></li>
+          <li class="mb-2"><a href="#faqs" class="hover:underline">FAQs</a></li>
+          <li class="mb-2"><a href="mailto:support@xany.app" class="hover:underline">Contact</a></li>
+          <li class="mb-2"><a href="#releaselog" class="hover:underline">Release Log</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="border-t border-gray-700 mt-8 pt-4 px-4 flex justify-center items-center">
+      <p class="text-sm">&copy; 2024 Xany. All rights reserved.</p>
+    </div>
   </footer>
+
 </body>
 </html>

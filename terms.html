@@ -1,41 +1,23 @@
 <!DOCTYPE html>
-<html lang="en-UTF8"
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xany Terms of Service</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
 </head>
 
 <body class="bg-gray-200">
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex flex-col justify-between items-center">
-          <a href="#" class="text-white font-bold text-xl">Xany</a>
-          <button class="block md:hidden text-white" onclick="toggleMenu()">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
-          <div class="hidden md:flex space-x-4">
-            <a href="https://xany.app" class="text-gray-300 hover:text-white">Home</a>
-            <a href="index.html#features" class="text-gray-300 hover:text-white">Features</a>
-            <a href="index.html#shortcut" class="text-gray-300 hover:text-white">Shortcut</a>
-            <a href="index.html#faqs" class="text-gray-300 hover:text-white">FAQs</a>
-            <a href="index.html#support" class="text-gray-300 hover:text-white">Support</a>
-            <a href="index.html#privacy" class="text-gray-300 hover:text-white">Privacy</a>
-            <a href="terms.html" class="text-gray-300 hover:text-white">Terms</a>
-            <a href="releaselog.html" class="text-gray-300 hover:text-white">Release Log</a>
-          </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
-          <a href="#" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Home</a>
-          <a href="#features" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Features</a>
-          <a href="#shortcut" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Shortcut</a>
-          <a href="#faqs" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">FAQs</a>
-          <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
-          <a href="#privacy" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Privacy</a>
-          <a href="terms.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Terms</a>
-          <a href="releaselog.html" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
-        </div>
-    </nav>
+  <nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-center items-center">
+      <ul class="flex space-x-20">
+        <li><a href="index.html" class="hover:underline text-white text-2xl">Xany</a></li>
+        <li><a href="xany_vnc.html" class="hover:underline text-white text-2xl">Xany VNC</a></li>
+        <li><a href="xanyd.html" class="hover:underline text-white text-2xl">Xanyd</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <main class="container mx-auto mt-8 p-4 text-center">
     <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex flex-col justify-center">
         <div>
@@ -63,8 +45,48 @@
     </section>
   </main>
 
-  <footer class="bg-gray-800 p-4 text-center text-white">
-    &copy; 2024 Xany. All rights reserved.
+  <footer class="bg-gray-800 text-gray-300 py-8">
+    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Menu</h3>
+        <ul>
+          <li class="mb-2"><a href="#" class="hover:underline">Home</a></li>
+          <li class="mb-2"><a href="#features" class="hover:underline">Features</a></li>
+          <li class="mb-2"><a href="#download" class="hover:underline">Download</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Product</h3>
+        <ul>
+          <li class="mb-2"><a href="index.html" class="hover:underline">Xany</a></li>
+          <li class="mb-2"><a href="xany_vnc.html" class="hover:underline">Xany VNC</a></li>
+          <li class="mb-2"><a href="xanyd.html" class="hover:underline">Xanyd</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Privacy & Terms</h3>
+        <ul>
+          <li class="mb-2"><a href="terms.html" class="hover:underline">Terms</a></li>
+          <li class="mb-2"><a href="privacy.html" class="hover:underline">Privacy</a></li>
+        </ul>
+      </div>
+  
+      <div>
+        <h3 class="font-bold uppercase mb-4 text-sm">Support</h3>
+        <ul>
+          <li class="mb-2"><a href="#shortcut" class="hover:underline">Shortcut</a></li>
+          <li class="mb-2"><a href="#faqs" class="hover:underline">FAQs</a></li>
+          <li class="mb-2"><a href="#releaselog" class="hover:underline">Release Log</a></li>
+          <li class="mb-2"><a href="#support" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="border-t border-gray-700 mt-8 pt-4 px-4 flex justify-center items-center">
+      <p class="text-sm">&copy; 2024 Xany. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
