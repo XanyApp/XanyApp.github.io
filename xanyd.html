@@ -80,20 +80,25 @@
   <main class="container mx-auto mt-8 p-4">
     <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex flex-col justify-center">
       <div class="text-center items-center">
-        <p class="text-3xl bg-gradient-to-r from-pink-500 via-green-500 to-yellow-500 bg-clip-text text-transparent">
-          A free alternative VNC server with curtain mode on macOS.
-         <a href="#footnote1" class="align-super text-xs text-blue-500">1</a>
+        <p class="text-4xl bg-gradient-to-r from-pink-500 via-green-500 to-yellow-500 bg-clip-text text-transparent leading-relaxed">
+          A powerful, free VNC server alternative with curtain mode support for macOS.
+          <a href="#footnote1" class="align-super text-xs text-blue-500">1</a>
         </p>
-        <p class="text-3xl bg-gradient-to-r from-green-500 via-yellow-500 to-blue-500 bg-clip-text text-transparent">
-          Enhanced performance for both <br> Apple Silicon and Intel processors.
+        <p class="text-4xl bg-gradient-to-r from-green-500 via-yellow-500 to-blue-500 bg-clip-text text-transparent leading-relaxed">
+          Optimized for exceptional performance on both <br> Apple Silicon and Intel processors.
         </p>
-        <p class="text-3xl bg-gradient-to-r from-blue-500 via-red-500 to-green-500 bg-clip-text text-transparent">
-          Secure Connection.
+        <p class="text-4xl bg-gradient-to-r from-blue-500 via-red-500 to-green-500 bg-clip-text text-transparent leading-relaxed">
+          Built with robust security for a safe and reliable connection.
+          <a href="#footnote2" class="align-super text-xs text-blue-500">2</a>
+        </p>
+        <p class="text-4xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent leading-relaxed">
+          We respect your privacy and do not collect any user data.
+          <a href="#footnote3" class="align-super text-xs text-blue-500">3</a>
         </p>
         <div class="mt-4">
           <a href="https://github.com/XanyApp/Xanyd">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-44 h-12 rounded-md">
-              Download On Github
+              Download on GitHub
             </button>
           </a>
         </div>
@@ -122,6 +127,10 @@
       <div id="releaselog" class="text-center">
         <h2 class="text-2xl font-bold text-center mb-6">Release Log</h2>
         <div class="grid grid-cols-3 gap-4 text-center">
+          <div>v1.2</div>
+          <div>Add support copying text from client</div> 
+          <div>Dec 27, 2024</div>
+
           <div>v1.1</div>
           <div>Fix app not responding</div>
           <div>Nov 07, 2024</div>
@@ -136,10 +145,22 @@
 
   <hr class="my-4 border-t border-gray-300">
 
-  <section class="ml-16 p-8 mt-4 mb-4 flex flex-col justify-center">
+  <section class="container mx-auto p-8 mt-4 mb-4 flex flex-col justify-center">
     <p id="footnote1" class="text-xs text-gray-600">
       1. Xanyd is not compatible with the other VNC clients, it only supports Xany VNC client.
+    </p> 
+    <p id="footnote2" class="text-xs text-gray-600">
+      2. TLS v1.3 is used for secure connection.
     </p>
+    <p id="footnote3" class="text-xs text-gray-600">
+      3. Users can verify Xanyd's network activity by using the following commands in a terminal:
+      <p class="ml-8 text-xs text-white bg-gray-700 p-2 rounded-md">
+        sudo lsof -i -n -P | grep Xanyd
+      </p>
+      <p class="ml-4 text-xs text-gray-600">
+        This command lists open network connections for the Xanyd process, ensuring transparency in its operation.
+      </p>
+    </p> 
   </section>
 
   <footer class="bg-gray-800 text-gray-300 py-8">
