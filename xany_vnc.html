@@ -91,10 +91,10 @@
         </div>
         <ul class="list-disc mt-4">
           <li class="text-2xl text-gray-500">
-            Compatible with standard VNC servers
+            Compatible with standard VNC servers.
           </li>
           <li class="text-2xl text-gray-500">
-            Supports None, VNC and ARD authentications
+            Supports None, VNC, ARD, RSA-AES and RSA-AES-265 authentications.
           </li>
         </ul>
         <p class="text-2xl font-semibold text-gray-700 mt-2 mb-2">
@@ -102,19 +102,19 @@
         </p>
         <ul class="list-disc">
           <li class="text-2xl text-gray-600">
-            Secure connection (TLS 1.3)
+            Secure connection (TLS 1.3).
           </li>
           <li class="text-2xl text-gray-600">
-            Multiple displays
+            Support multi-screen.
           </li>
           <li class="text-2xl text-gray-600">
-            Curtain mode
+            Support curtain mode.
           </li>
           <li class="text-2xl text-gray-600">
-            H.264 video streaming
+            H.264 video streaming.
           </li>
           <li class="text-2xl text-gray-600">
-            LPCM audio streaming
+            Support audio playback.
           </li>
         </ul>
         <div>
@@ -232,31 +232,112 @@
     </section>
 
     <section class="bg-gray-100 p-8 rounded-lg shadow-lg mb-8 flex justify-center">
-      <div id="releaselog" class="text-center">
+      <div id="releaselog">
         <div class="mb-8">
-          <h1 class="text-2xl font-bold">Release Log</h1>
+          <h1 class="text-2xl font-bold text-center">Release Log</h1>
         </div>
 
-        <div class="grid grid-cols-3 gap-4 text-center">
+        <h2 class="text-1xl font-semibold mb-4 text-center">On Vision Pro</h2>
+        <div class="grid grid-cols-3 gap-4"> 
+          <div>v1.4.2</div>
+          <div>Fixed an issue where the resolution is low.</div>
+          <div class="text-right">Apr 02, 2025</div>
+
+          <div>v1.4.1</div>
+          <div>
+            - Added support for the wayvnc with RSA-AES[-256] secucity types.<br>
+            - Fixed an issue where the 'Return' key won't work.<br>
+            - Fixed an issue the keyboard icon state if keyboard is hidden.<br>
+            - Fixed an issue where users were incorrectly prompted to enter username and/or password even when no password was required.<br>
+            - Fixed the host name won't refresh if user modified the host name.
+          </div>
+          <div class="text-right">May 18, 2025</div>
+
+
           <div>v1.4</div>
-          <div>Add play the remote desktop audio when connecting to Xanyd.</div>
-          <div>Mar 04, 2025</div>
+          <div>Added remote desktop audio playback when connected to Xanyd server.</div>
+          <div class="text-right">Mar 04, 2025</div>
 
           <div>v1.3</div>
-          <div>Add support H.264 video streaming when connecting to Xanyd.</div>
-          <div>Jan 05, 2025</div>
+          <div>Added support H.264 video streaming when connected to Xanyd server.</div>
+          <div class="text-right">Jan 05, 2025</div>
 
           <div>v1.2</div>
-          <div>Add support pasting text to server</div>
-          <div>Dec 27, 2024</div>
+          <div>Added support pasting text to server.</div>
+          <div class="text-right">Dec 27, 2024</div>
 
           <div>v1.1</div>
-          <div>Fix the connection count of group issue</div>
-          <div>Nov 01, 2024</div>
+          <div>Fixed an issue where the connection count of group.</div>
+          <div class="text-right">Nov 01, 2024</div>
+
+          <div>v1.0</div>
+          <div>Initial release.</div>
+          <div class="text-right">Sep 26, 2024</div>
+        </div>
+
+        <h2 class="text-1xl font-semibold mb-4 text-center">On iOS/iPadOS</h2>
+        <div class="grid grid-cols-3 gap-4"> 
+          <div>v1.4</div>
+          <div>Added remote desktop audio playback when connected to Xanyd server.</div>
+          <div class="text-right">Mar 04, 2025</div>
+
+          <div>v1.3</div>
+          <div>Added support H.264 video streaming when connected to Xanyd server.</div>
+          <div class="text-right">Jan 05, 2025</div>
+
+          <div>v1.2</div>
+          <div>Added support pasting text to server.</div>
+          <div class="text-right">Dec 27, 2024</div>
+
+          <div>v1.1</div>
+          <div>Fixed an issue where the connection count of group.</div>
+          <div class="text-right">Nov 01, 2024</div>
+
+          <div>v1.0</div>
+          <div>Initial release.</div>
+          <div class="text-right">Sep 26, 2024</div>
+        </div>
+
+        <h2 class="text-1xl font-semibold mt-4 mb-4 text-center">On macOS</h2>
+        <div class="grid grid-cols-3 gap-4"> 
+          <div>v1.5</div>
+          <div>
+            - Added support for cursor rendering.<br>
+            - Added support for copying text from the server.<br>
+            - Improved content scrolling for smoother experience.<br>
+            - Removed the image quality option from connection settings.<br>
+
+            - Fixed an issue where the connection name would revert after being changed.<br>
+            - Fixed an issue where items for multiple monitors were not displayed correctly.<br>
+            - Fixed an issue where right-click actions were unresponsive.<br>
+            - Fixed an issue with mouse drag operations not functioning properly.<br>
+            - Fixed an issue where the cursor did not move correctly when using the mouse.<br>
+            - Fixed an issue with copying large amounts of text from the server.<br>
+          </div>
+          <div class="text-right">May 18, 2025</div>
+
+          <div>v1.4</div>
+          <div>
+            - Added support for the wayvnc server with RSA-AES and RSA-AES-256 security types.<br>
+            - Fixed an issue where users were incorrectly prompted to enter username and/or password even when no password was required.
+          </div>
+          <div class="text-right">Mar 04, 2025</div>
+
+          <div>v1.3</div>
+          <div>Added remote desktop audio playback when connected to Xanyd server.</div>
+          <div class="text-right">Mar 04, 2025</div>
+
+          <div>v1.2</div>
+          <div>Added support H.264 video streaming when connected to Xanyd server.</div>
+          <div class="text-right">Jan 05, 2025</div>
+
+          <div>v1.1</div>
+          <div>Added support pasting text to server.</div>
+          <div class="text-right">Dec 27, 2024</div>
 
           <div>v1.0</div>
           <div>Initial release</div>
-          <div>Sep 26, 2024</div>
+          <div class="text-right">Sep 26, 2024</div>
         </div>
       </div>
     </section>
