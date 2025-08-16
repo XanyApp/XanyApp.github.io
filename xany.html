@@ -59,15 +59,15 @@
   </script>
 </head>
 
-<body class="bg-gray-200">
-  <nav class="bg-gray-800 p-4">
+<body class="bg-while">
+  <nav class="bg-while p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="flex items-center text-white font-bold text-xl">
+      <a href="index.html" class="flex items-center text-black font-bold text-xl">
         <img src="images/icon.png" alt="Xany Logo" class="w-8 h-8 mr-2 rounded-md">
         Xany
       </a>
 
-      <button class="block md:hidden text-white" onclick="toggleMenu()">
+      <button class="block md:hidden text-black" onclick="toggleMenu()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -75,42 +75,42 @@
 
       <div class="hidden md:flex space-x-4">
         <div class="relative group">
-          <a class="text-gray-300 hover:text-white flex items-center space-x-1 cursor-pointer">
+          <a class="text-black hover:text-blue-500 flex items-center space-x-1 cursor-pointer">
             <span>Product</span>
             <svg class="w-4 h-4 transform group-hover:rotate-180 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </a>
-          <div class="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <a href="xany_vnc.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xany VNC</a>
-            <a href="xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xanyd</a>
+          <div class="absolute left-0 mt-2 w-48 bg-gray-200 text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="xany_vnc.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xany VNC</a>
+            <a href="xanyd.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xanyd</a>
           </div>
         </div>
-        <a href="#features" class="text-gray-300 hover:text-white">Features</a>
-        <a href="#shortcut" class="text-gray-300 hover:text-white">Shortcut</a>
-        <a href="#faqs" class="text-gray-300 hover:text-white">FAQs</a>
-        <a href="#support" class="text-gray-300 hover:text-white">Support</a>
-        <a href="#releaselog" class="text-gray-300 hover:text-white">Release Log</a>
+        <a href="#features" class="text-black hover:text-blue-500">Features</a>
+        <a href="#shortcut" class="text-black hover:text-blue-500">Shortcut</a>
+        <a href="#faqs" class="text-black hover:text-blue-500">FAQs</a>
+        <a href="#support" class="text-black hover:text-blue-500">Support</a>
+        <a href="#releaselog" class="text-black hover:text-blue-500">Release Log</a>
       </div>
     </div>
     <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
       <div class="relative">
-        <button onclick="toggleDropdown()" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded flex justify-between items-center w-full">
+        <button onclick="toggleDropdown()" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded flex justify-between items-center w-full">
           Product
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="mobile-dropdown" class="hidden flex flex-col bg-gray-700 text-white rounded-md mt-1">
-          <a href="xany_vnc.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xany VNC</a>
-          <a href="xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xanyd</a>
+        <div id="mobile-dropdown" class="hidden flex flex-col bg-gray-200 text-black rounded-md mt-1">
+          <a href="xany_vnc.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xany VNC</a>
+          <a href="xanyd.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xanyd</a>
         </div>
       </div>
-      <a href="#features" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Features</a>
-      <a href="#shortcut" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Shortcut</a>
-      <a href="#faqs" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">FAQs</a>
-      <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
-      <a href="#releaselog" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+      <a href="#features" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Features</a>
+      <a href="#shortcut" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Shortcut</a>
+      <a href="#faqs" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">FAQs</a>
+      <a href="#support" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Support</a>
+      <a href="#releaselog" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Release Log</a>
     </div>
   </nav>
 
@@ -397,7 +397,7 @@
     </section>
   </main>
 
-  <footer class="bg-gray-800 text-gray-300 py-8">
+  <footer class="bg-white text-black py-8">
     <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
       <div>
         <h3 class="font-bold uppercase mb-4 text-sm">Menu</h3>

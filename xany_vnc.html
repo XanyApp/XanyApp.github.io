@@ -32,53 +32,53 @@
 
 <body>
 
-  <nav class="bg-gray-800 p-4">
+  <nav class="bg-white p-4">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="#" class="flex items-center text-white font-bold text-xl">
+    <a href="#" class="flex items-center text-black font-bold text-xl">
       <img src="images/xany_vnc/icon.png" alt="Xany Logo" class="w-8 h-8 mr-2 rounded-md">
       Xany VNC
     </a>
-    <button class="block md:hidden text-white" onclick="toggleMenu()">
+    <button class="block md:hidden text-black" onclick="toggleMenu()">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
     <div class="hidden md:flex space-x-4">
       <div class="relative group">
-        <a class="text-gray-300 hover:text-white flex items-center space-x-1 cursor-pointer">
+        <a class="text-black hover:text-blue-500 flex items-center space-x-1 cursor-pointer">
           <span>Product</span>
           <svg class="w-4 h-4 transform group-hover:rotate-180 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </a>
-        <div class="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <a href="xany.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xany</a>
-          <a href="xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Xanyd</a>
+        <div class="absolute left-0 mt-2 w-48 bg-gray-200 text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <a href="xany.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xany</a>
+          <a href="xanyd.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xanyd</a>
         </div>
       </div>
-      <a href="#gestures" class="text-gray-300 hover:text-white">Gestures</a>
-      <a href="#download" class="text-gray-300 hover:text-white">Download</a>
-      <a href="#support" class="text-gray-300 hover:text-white">Support</a>
-      <a href="#releaselog" class="text-gray-300 hover:text-white">Release Log</a>
+      <a href="#gestures" class="text-black hover:text-blue-500">Gestures</a>
+      <a href="#download" class="text-black hover:text-blue-500">Download</a>
+      <a href="#support" class="text-black hover:text-blue-500">Support</a>
+      <a href="#releaselog" class="text-black hover:text-blue-500">Release Log</a>
     </div>
   </div>
   <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 mt-2">
     <div class="relative">
-      <button onclick="toggleDropdown()" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded flex justify-between items-center w-full">
+      <button onclick="toggleDropdown()" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded flex justify-between items-center w-full">
         Product
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
       </button>
-      <div id="mobile-dropdown" class="hidden flex flex-col bg-gray-700 text-white rounded-md mt-1">
-        <a href="xany.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xany</a>
-        <a href="xanyd.html" class="block px-4 py-2 text-sm hover:bg-gray-600">Xanyd</a>
+      <div id="mobile-dropdown" class="hidden flex flex-col bg-gray-200 text-black rounded-md mt-1">
+        <a href="xany.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xany</a>
+        <a href="xanyd.html" class="block px-4 py-2 text-sm hover:text-blue-500">Xanyd</a>
       </div>
     </div>
-    <a href="#gestures" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Gestures</a>
-    <a href="#download" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Download</a>
-    <a href="#support" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Support</a>
-    <a href="#releaselog" class="text-gray-300 hover:text-white block p-2 bg-gray-700 rounded">Release Log</a>
+    <a href="#gestures" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Gestures</a>
+    <a href="#download" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Download</a>
+    <a href="#support" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Support</a>
+    <a href="#releaselog" class="text-black hover:text-blue-500 block p-2 bg-gray-200 rounded">Release Log</a>
   </div>
   </nav>
 
@@ -353,6 +353,25 @@
 
         <h2 class="text-1xl font-semibold mt-4 mb-4 text-center">On Mac</h2>
         <div class="grid grid-cols-3 gap-4"> 
+          <div>v1.6.0</div>
+          <div>
+            - Added support IPv6.<br>
+            - Prefer ZLIB encoding over ZRLE encoding if connected to the built-in vnc server on macOS.<br>
+          </div>
+          <div class="text-right">Aug 16, 2025</div>
+
+          <div>v1.5.1</div>
+          <div>
+            - Added support ZRLE encoding.<br>
+            - New icon.<br>
+            - Added helpful tips that appear when you have empty groups or connections, guiding you on how to get started. You can also opt to not show these tips again.<br>
+            - Fixed multiple App Crash.<br>
+            - Fixed cursor movement.<br>
+            - Fixed keyboard issues.
+          </div>
+          <div class="text-right">Jul 18, 2025</div>
+
+
           <div>v1.5</div>
           <div>
             - Added support for cursor rendering.<br>
@@ -397,13 +416,13 @@
 
   </main>
 
-  <footer class="bg-gray-800 text-gray-300 py-8">
+  <footer class="bg-white text-black py-8">
     <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
       <div>
         <h3 class="font-bold uppercase mb-4 text-sm">Menu</h3>
         <ul>
           <li class="mb-2"><a href="#" class="hover:underline">Home</a></li>
-          <li class="mb-2"><a href="#features" class="hover:underline">Features</a></li>
+          <li class="mb-2"><a href="#gestures" class="hover:underline">Gestures</a></li>
           <li class="mb-2"><a href="#download" class="hover:underline">Download</a></li>
         </ul>
       </div>

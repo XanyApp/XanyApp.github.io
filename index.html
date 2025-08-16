@@ -3,41 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
+    <title>XanyApp</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body { margin:0; overflow:hidden; background:#fff; }
+      canvas { display:block; }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <div class="container mt-10 mx-auto py-8 flex flex-col items-center">
-        <div class="flex flex-col gap-6 items-center">
-            <div class="bg-purple-100 shadow-md rounded-lg p-4 w-full max-w-md flex justify-between items-center gap-4">
-                <img src="images/icon.png" alt="Product Icon" class="w-24 h-24 rounded-[20px]">
-                <div class="flex-1">
-                    <h2 class="text-xl font-semibold mb-2">Xany</h2>
-                    <p class="text-gray-600">A SSH, SFTP and VNC client for iOS/iPadOS.</p>
-                </div>
-                <a href="xany.html" class="ml-4 bg-purple-900 text-white px-4 py-2 rounded-[20px] hover:bg-purple-600">Learn More</a>
-            </div> 
-            <div class="bg-green-100 shadow-md rounded-lg p-4 w-full max-w-md flex justify-between items-center gap-4">
-                <img src="images/xany_vnc/icon.png" alt="Product Icon" class="w-24 h-24 rounded-[20px]">
-                <div class="flex-1">
-                    <h2 class="text-xl font-semibold mb-2">Xany VNC</h2>
-                    <p class="text-gray-600">A VNC client for Apple platforms.</p>
-                </div>
-                <a href="xany_vnc.html" class="ml-4 bg-green-900 text-white px-4 py-2 rounded-[20px] hover:bg-green-600">Learn More</a>
-            </div>
-            <div class="bg-blue-100 shadow-md rounded-lg p-4 w-full max-w-md flex justify-between items-center gap-4">
-                <img src="images/xanyd/icon.png" alt="Product Icon" class="w-24 h-24 rounded-[20px]">
-                <div class="flex-1">
-                    <h2 class="text-xl font-semibold mb-2">Xanyd</h2>
-                    <p class="text-gray-600">A powerful, free VNC server alternative with curtain mode support for macOS.</p>
-                </div>
-                <a href="xanyd.html" class="ml-4 bg-blue-900 text-white px-4 py-2 rounded-[20px] hover:bg-blue-600">Learn More</a>
-            </div>
-        </div>
-    </div>
 
-    <footer class="text-black text-center py-4 fixed bottom-0 w-full">
-        <p class="text-sm">&copy; 2025 Xany. All rights reserved.</p>
-    </footer>
+<body class="bg-gray-100 font-sans">
+    <canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let products = ["Xany VNC", "Xanyd", "Xany"];
+let descriptions = [
+  "A VNC client for Apple platforms.",
+  "A powerful, free VNC server alternative with curtain mode support for macOS.",
+  "A SSH, SFTP and VNC client for iOS/iPadOS."
+];
+let links = ["xany_vnc.html", "xanyd.html", "xany.html"];
+let colors = ["#000000","#000000","#000000"];
+
+let fontSize = 80, lineHeight = fontSize*1.3;
+let descFontSize = 30, descLineHeight = descFontSize*1.3;
+let productParticleRadius = 2, descParticleRadius = 1;
+let totalParticles = 4096 * 4;
+
+let textRects = [];
+let pointsByLine=[], lineIsDesc=[], totalPixelCount=0;
+let particles = [];
+let flockMode=true, textReady=false, hoverIndex=-1;
+
+function wrapText(text, ctx, maxWidth){
+  let words = text.split(' ');
+  let lines = [], line = '';
+  for(let n=0; n<words.length; n++){
+    let testLine = line + words[n] + ' ';
+    if(ctx.measureText(testLine).width > maxWidth && line !== ''){
+      lines.push(line.trim());
+      line = words[n] + ' ';
+    } else {
+      line = testLine;
+    }
+  }
+  lines.push(line.trim());
+  return lines;
+}
+
+function getTextPoints(text, font, startY, step=4, isDesc=false){
+  let hidden = document.createElement("canvas");
+  hidden.width = canvas.width;
+  hidden.height = canvas.height;
+  let hctx = hidden.getContext("2d");
+  hctx.font = font;
+  hctx.fillStyle = "white";
+  hctx.textAlign = "center";
+  hctx.textBaseline = "top";
+
+  let lines = isDesc ? wrapText(text, hctx, canvas.width*0.8) : [text];
+  let pts = [];
+  for(let i=0; i<lines.length; i++){
+    let lineY = startY + i * (isDesc ? descLineHeight : lineHeight);
+    hctx.fillText(lines[i], hidden.width/2, lineY);
+    let data = hctx.getImageData(0,0,hidden.width,hidden.height).data;
+    for(let y=0;y<hidden.height;y+=step){
+      for(let x=0;x<hidden.width;x+=step){
+        if(data[(y*hidden.width+x)*4+3]>128) pts.push({x,y});
+      }
+    }
+  }
+
+  if(!isDesc){
+    let width = hctx.measureText(text).width;
+    textRects.push({x:hidden.width/2 - width/2, y:startY, width, height:lineHeight});
+  }
+
+  return pts;
+}
+
+function initTextPoints(){
+  pointsByLine=[]; lineIsDesc=[]; totalPixelCount=0; textRects=[];
+  let heights = [];
+  const ctxTmp = document.createElement("canvas").getContext("2d");
+  ctxTmp.font = `bold ${fontSize}px Arial`;
+  for(let i=0;i<products.length;i++){
+    let pHeight = lineHeight;
+    ctxTmp.font = `${descFontSize}px Arial`;
+    let lines = wrapText(descriptions[i], ctxTmp, canvas.width*0.8);
+    let dHeight = descLineHeight * lines.length;
+    heights.push(pHeight + dHeight + 50);
+  }
+
+  let totalHeight = heights.reduce((a,b)=>a+b,0);
+  let startY = (canvas.height - totalHeight)/2;
+
+  for(let i=0;i<products.length;i++){
+    let py = startY;
+    let pPts = getTextPoints(products[i],`bold ${fontSize}px Arial`, py, 6, false);
+    pointsByLine.push(pPts); lineIsDesc.push(false); totalPixelCount += pPts.length;
+
+    let dPts = getTextPoints(descriptions[i], `${descFontSize}px Arial`, py+lineHeight, 3, true);
+    pointsByLine.push(dPts); lineIsDesc.push(true); totalPixelCount += dPts.length;
+
+    startY += heights[i];
+  }
+}
+
+class Particle{
+  constructor(){
+    this.x=Math.random()*canvas.width;
+    this.y=Math.random()*canvas.height;
+    this.vx=(Math.random()-0.5)*10;
+    this.vy=(Math.random()-0.5)*10;
+    this.tx=0; this.ty=0;
+    this.wordIndex=0;
+    this.isDesc=false;
+    this.radius=productParticleRadius;
+    this.baseRadius=this.radius;
+    this.color=colors[0];
+  }
+
+  update(){
+    if(flockMode){
+      this.x+=this.vx; this.y+=this.vy;
+      this.vx*=0.98; this.vy*=0.98;
+      if(this.x<0||this.x>canvas.width)this.vx*=-1;
+      if(this.y<0||this.y>canvas.height)this.vy*=-1;
+    }else{
+      this.x += (this.tx - this.x)*0.1;
+      this.y += (this.ty - this.y)*0.1;
+      this.vx*=0.9; this.vy*=0.9;
+    }
+  }
+
+  draw(){
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function assignParticles(){
+  if(particles.length===0){
+    for(let i=0;i<totalParticles;i++) particles.push(new Particle());
+  }
+  particles.forEach(p=>{
+    let total = pointsByLine.reduce((a,b)=>a+b.length,0);
+    let r = Math.random()*total, acc=0;
+    for(let i=0;i<pointsByLine.length;i++){
+      acc += pointsByLine[i].length;
+      if(r<=acc){
+        let pts = pointsByLine[i];
+        let pt = pts[Math.floor(Math.random()*pts.length)];
+        p.tx = pt.x; p.ty = pt.y;
+        p.isDesc = lineIsDesc[i];
+        p.radius = p.baseRadius = p.isDesc?descParticleRadius:productParticleRadius;
+        p.wordIndex = Math.floor(i/2);
+        p.color = colors[p.wordIndex%colors.length];
+        break;
+      }
+    }
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    if(!p.isDesc && hoverIndex===p.wordIndex) p.radius=p.baseRadius*1.5;
+    else p.radius=p.baseRadius;
+    p.update(); p.draw();
+  });
+  if(!flockMode && !textReady){
+    if(particles.every(p=>Math.abs(p.vx)<0.1 && Math.abs(p.vy)<0.1)) textReady=true;
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+setTimeout(()=>{flockMode=false;}, 1000);
+
+function handleHover(x,y){
+  hoverIndex=-1;
+  textRects.forEach((r,i)=>{ if(x>=r.x && x<=r.x+r.width && y>=r.y && y<=r.y+r.height) hoverIndex=i; });
+}
+
+canvas.addEventListener("mousemove", e=>handleHover(e.clientX,e.clientY));
+canvas.addEventListener("touchstart", e=>handleHover(e.touches[0].clientX,e.touches[0].clientY));
+canvas.addEventListener("touchmove", e=>handleHover(e.touches[0].clientX,e.touches[0].clientY));
+
+canvas.addEventListener("click", e=>{
+  if(!textReady) return;
+  let mx=e.clientX,my=e.clientY;
+  particles.forEach(p=>{
+    if(!p.isDesc && Math.hypot(p.x-mx,p.y-my)<6) window.location.href=links[p.wordIndex];
+  });
+});
+
+function resizeCanvas(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  initTextPoints();
+  assignParticles();
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+</script>
+  
+<footer class="text-black text-center py-4 fixed bottom-0 w-full">
+  <p class="text-sm">&copy; 2025 Xany. All rights reserved.</p>
+</footer>
 </body>
 </html>
