@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XanyApp</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body { margin:0; overflow:hidden; background:#fff; }
-      canvas { display:block; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xany.APP</title>
+<style>
+  body { margin:0; overflow:hidden; background:#fff; }
+  canvas { display:block; }
+</style>
 </head>
-
-<body class="bg-gray-100 font-sans">
-    <canvas id="canvas"></canvas>
+<body>
+<canvas id="canvas"></canvas>
 <script>
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -26,14 +24,16 @@ let descriptions = [
 let links = ["xany_vnc.html", "xanyd.html", "xany.html"];
 let colors = ["#000000","#000000","#000000"];
 
-let fontSize = 80, lineHeight = fontSize*1.3;
-let descFontSize = 30, descLineHeight = descFontSize*1.3;
+let baseFontSize = 80, baseDescFontSize = 30;
+let fontSize, descFontSize, lineHeight, descLineHeight;
 let productParticleRadius = 2, descParticleRadius = 1;
 let totalParticles = 4096 * 4;
 
+let baseInterval = 50;
+let interval;
+
 let textRects = [];
-let pointsByLine=[], lineIsDesc=[], totalPixelCount=0;
-let particles = [];
+let pointsByLine=[], lineIsDesc=[], particles=[];
 let flockMode=true, textReady=false, hoverIndex=-1;
 
 function wrapText(text, ctx, maxWidth){
@@ -50,6 +50,41 @@ function wrapText(text, ctx, maxWidth){
   }
   lines.push(line.trim());
   return lines;
+}
+
+function measureTotalHeight(){
+  let hctx = document.createElement("canvas").getContext("2d");
+  hctx.textAlign="center"; hctx.textBaseline="top";
+  let totalHeight=0;
+  for(let i=0;i<products.length;i++){
+    hctx.font = `bold ${fontSize}px Arial`;
+    totalHeight += lineHeight;
+
+    hctx.font = `${descFontSize}px Arial`;
+    let descLines = wrapText(descriptions[i], hctx, canvas.width*0.8);
+    totalHeight += descLineHeight * descLines.length;
+
+    totalHeight += interval;
+  }
+  return totalHeight;
+}
+
+function adjustFontSize(){
+  fontSize = baseFontSize;
+  descFontSize = baseDescFontSize;
+  lineHeight = fontSize*1.3;
+  descLineHeight = descFontSize*1.3;
+  interval = baseInterval;
+
+  let totalHeight = measureTotalHeight();
+  if(totalHeight > canvas.height){
+    let scale = canvas.height / totalHeight;
+    fontSize *= scale;
+    descFontSize *= scale;
+    lineHeight = fontSize*1.3;
+    descLineHeight = descFontSize*1.3;
+    interval = baseInterval * scale;
+  }
 }
 
 function getTextPoints(text, font, startY, step=4, isDesc=false){
@@ -84,30 +119,19 @@ function getTextPoints(text, font, startY, step=4, isDesc=false){
 }
 
 function initTextPoints(){
-  pointsByLine=[]; lineIsDesc=[]; totalPixelCount=0; textRects=[];
-  let heights = [];
-  const ctxTmp = document.createElement("canvas").getContext("2d");
-  ctxTmp.font = `bold ${fontSize}px Arial`;
+  pointsByLine=[]; lineIsDesc=[]; textRects=[];
+  adjustFontSize();
+
+  let startY = (canvas.height - measureTotalHeight())/2;
   for(let i=0;i<products.length;i++){
-    let pHeight = lineHeight;
-    ctxTmp.font = `${descFontSize}px Arial`;
-    let lines = wrapText(descriptions[i], ctxTmp, canvas.width*0.8);
-    let dHeight = descLineHeight * lines.length;
-    heights.push(pHeight + dHeight + 50);
-  }
+    let pPts = getTextPoints(products[i],`bold ${fontSize}px Arial`, startY, 6, false);
+    pointsByLine.push(pPts); lineIsDesc.push(false);
 
-  let totalHeight = heights.reduce((a,b)=>a+b,0);
-  let startY = (canvas.height - totalHeight)/2;
+    let dPts = getTextPoints(descriptions[i], `${descFontSize}px Arial`, startY+lineHeight, 3, true);
+    pointsByLine.push(dPts); lineIsDesc.push(true);
 
-  for(let i=0;i<products.length;i++){
-    let py = startY;
-    let pPts = getTextPoints(products[i],`bold ${fontSize}px Arial`, py, 6, false);
-    pointsByLine.push(pPts); lineIsDesc.push(false); totalPixelCount += pPts.length;
-
-    let dPts = getTextPoints(descriptions[i], `${descFontSize}px Arial`, py+lineHeight, 3, true);
-    pointsByLine.push(dPts); lineIsDesc.push(true); totalPixelCount += dPts.length;
-
-    startY += heights[i];
+    let descLineCount = wrapText(descriptions[i], ctx, canvas.width*0.8).length;
+    startY += lineHeight + descLineHeight*descLineCount + interval;
   }
 }
 
@@ -124,7 +148,6 @@ class Particle{
     this.baseRadius=this.radius;
     this.color=colors[0];
   }
-
   update(){
     if(flockMode){
       this.x+=this.vx; this.y+=this.vy;
@@ -134,10 +157,8 @@ class Particle{
     }else{
       this.x += (this.tx - this.x)*0.1;
       this.y += (this.ty - this.y)*0.1;
-      this.vx*=0.9; this.vy*=0.9;
     }
   }
-
   draw(){
     ctx.fillStyle = this.color;
     ctx.beginPath();
@@ -172,26 +193,21 @@ function assignParticles(){
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   particles.forEach(p=>{
-    if(!p.isDesc && hoverIndex===p.wordIndex) p.radius=p.baseRadius*1.5;
+    if(!p.isDesc && hoverIndex===p.wordIndex) p.radius=p.baseRadius*2;
     else p.radius=p.baseRadius;
     p.update(); p.draw();
   });
-  if(!flockMode && !textReady){
-    if(particles.every(p=>Math.abs(p.vx)<0.1 && Math.abs(p.vy)<0.1)) textReady=true;
-  }
   requestAnimationFrame(animate);
 }
 animate();
-setTimeout(()=>{flockMode=false;}, 1000);
+setTimeout(()=>{flockMode=false;},1000);
 
-function handleHover(x,y){
+canvas.addEventListener("mousemove", e=>{
   hoverIndex=-1;
-  textRects.forEach((r,i)=>{ if(x>=r.x && x<=r.x+r.width && y>=r.y && y<=r.y+r.height) hoverIndex=i; });
-}
-
-canvas.addEventListener("mousemove", e=>handleHover(e.clientX,e.clientY));
-canvas.addEventListener("touchstart", e=>handleHover(e.touches[0].clientX,e.touches[0].clientY));
-canvas.addEventListener("touchmove", e=>handleHover(e.touches[0].clientX,e.touches[0].clientY));
+  textRects.forEach((r,i)=>{ 
+    if(e.clientX>=r.x && e.clientX<=r.x+r.width && e.clientY>=r.y && e.clientY<=r.y+r.height) hoverIndex=i;
+  });
+});
 
 canvas.addEventListener("click", e=>{
   if(!textReady) return;
@@ -211,9 +227,5 @@ function resizeCanvas(){
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 </script>
-  
-<footer class="text-black text-center py-4 fixed bottom-0 w-full">
-  <p class="text-sm">&copy; 2025 Xany. All rights reserved.</p>
-</footer>
 </body>
 </html>
