@@ -133,6 +133,7 @@ function initTextPoints(){
     let descLineCount = wrapText(descriptions[i], ctx, canvas.width*0.8).length;
     startY += lineHeight + descLineHeight*descLineCount + interval;
   }
+  textReady = true;
 }
 
 class Particle{
